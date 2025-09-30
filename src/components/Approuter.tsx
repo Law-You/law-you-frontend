@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './navbar';
 
 // Import your page components
-import Home from '../pages/Home';
+// import Home from '../pages/Home';
 import Login from '../pages/Login';
-import Dashboard from '../pages/Dashboard';
+// import Dashboard from '../pages/Dashboard';
 import About from '../pages/About';
 import SignUp from '../pages/SignUp';
+import CustomerDashboard from '../pages/customerDashboard';
+import LandingPage from '../pages/LandingPage';
 
 // Define your routes configuration
 export const routes = [
   {
     path: '/',
-    element: <Home />,
+    element: <LandingPage />,
     name: 'Home'
   },
   {
@@ -23,7 +25,7 @@ export const routes = [
   },
   {
     path: '/dashboard',
-    element: <Dashboard />,
+    element: <CustomerDashboard />,
     name: 'Dashboard'
   },
   {

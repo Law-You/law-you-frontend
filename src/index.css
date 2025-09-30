@@ -24,13 +24,11 @@ a:hover {
 
 /* body styles moved to html, body above for background */
 html, body {
-  background-color: #FFF7ED !important;
+  background-color: #ffffff !important;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }

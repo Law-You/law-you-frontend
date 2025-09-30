@@ -1,42 +1,57 @@
-.Login{
-    height: 100vh;
-    width: 100vw;
-    min-height: 100vh;
-    min-width: 100vw;
+.login-page-wrapper {
+    height: 85vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    background-color: #FFF7ED;
-    display: flex;
-    align-items: left;
-    padding: 64px;
-    min-height: 50vh;
-    min-width: 60vh;
-    max-height: 50vh;
-    max-width: 70vh;
-    border-radius: 25px;
-    background-color: #FFF7ED;
-    margin-top: 15%;
-  }
-  
-  .Login-Container{
-    height: 100%;
-    min-height: 600px;
-    max-height: 90vh;
-    width: 800px;
-    background: rgba(255,255,255,0.85);
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.Login-Container {
+    height: auto;
+    min-height: 500px;
+    max-height: 600px;
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255,255,255,0.95);
     border-radius: 25px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    padding: 2rem;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-  }
+    flex-direction: row;
+}
+
+.login-form-col {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+}
+
+.login-bg-col {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-page-wrapper {
+        padding: 1rem;
+    }
+    
+    .Login-Container {
+        flex-direction: column;
+        max-width: 500px;
+    }
+    
+    .login-form-col,
+    .login-bg-col {
+        width: 100% !important;
+    }
+    
+    .login-bg-col {
+        min-height: 200px;
+        order: -1;
+    }
+}

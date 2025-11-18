@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 const lawyers = [
   { name: "Priya Sharma", experience: 8, rating: 4.7 },
@@ -13,16 +13,29 @@ const lawyers = [
   { name: "Vikram Mehta", experience: 11, rating: 4.6 },
 ];
 
-const renderStars = (rating) => {
+const renderStars = (rating: number) => {
   const stars = [];
   const fullStars = Math.floor(rating);
   const halfStar = rating - fullStars >= 0.5;
   for (let i = 0; i < fullStars; i++) {
-    stars.push(<span key={`full-${i}`} style={{ color: "#f5c518" }}>★</span>);
+    stars.push(
+      <span key={`full-${i}`} style={{ color: "#f5c518" }}>
+        ★
+      </span>
+    );
   }
-  if (halfStar) stars.push(<span key="half" style={{ color: "#f5c518" }}>☆</span>);
+  if (halfStar)
+    stars.push(
+      <span key="half" style={{ color: "#f5c518" }}>
+        ☆
+      </span>
+    );
   for (let i = fullStars + (halfStar ? 1 : 0); i < 5; i++) {
-    stars.push(<span key={`empty-${i}`} style={{ color: "#ddd" }}>★</span>);
+    stars.push(
+      <span key={`empty-${i}`} style={{ color: "#ddd" }}>
+        ★
+      </span>
+    );
   }
   return stars;
 };
@@ -48,39 +61,61 @@ const Dashboard = () => {
         ratingFilter === "" ||
         (ratingFilter === "4" && lawyer.rating >= 4) ||
         (ratingFilter === "4.5" && lawyer.rating >= 4.5);
-      const matchesSearch = lawyer.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesSearch = lawyer.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
       return matchesExperience && matchesRating && matchesSearch;
     });
   }, [experienceFilter, ratingFilter, searchTerm]);
 
   return (
-    <div style={{ minHeight: "100vh", background: lightBg, fontFamily: "Inter, Arial, sans-serif", padding: 0 }}>
-      <main style={{
-        maxWidth: 1200,
-        margin: "48px auto",
-        background: "#fff",
-        borderRadius: "28px",
-        boxShadow: "0 6px 24px rgba(18,27,49,0.07)",
-        padding: "2rem 2rem 2.5rem 2rem",
-        border: `1.5px solid ${cardBorder}`,
-        display: "flex",
-        gap: "36px"
-      }}>
-        {/* Sidebar / Filter */}
-        <aside style={{
-          flex: "0 0 325px",
-          background: lightBg,
-          borderRadius: "16px",
-          padding: "2rem 1.5rem 1.5rem 1.5rem",
-          minHeight: "480px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-          border: `2px solid ${borderColor}`,
+    <div
+      style={{
+        minHeight: "100vh",
+        background: lightBg,
+        fontFamily: "Inter, Arial, sans-serif",
+        padding: 0,
+      }}
+    >
+      <main
+        style={{
+          maxWidth: 1200,
+          margin: "48px auto",
+          background: "#fff",
+          borderRadius: "28px",
+          boxShadow: "0 6px 24px rgba(18,27,49,0.07)",
+          padding: "2rem 2rem 2.5rem 2rem",
+          border: `1.5px solid ${cardBorder}`,
           display: "flex",
-          flexDirection: "column",
-          gap: "1rem"
-        }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-            <h4 style={{ fontWeight: 700, fontSize: "1.09rem", margin: 0 }}>Filter</h4>
+          gap: "36px",
+        }}
+      >
+        {/* Sidebar / Filter */}
+        <aside
+          style={{
+            flex: "0 0 325px",
+            background: lightBg,
+            borderRadius: "16px",
+            padding: "2rem 1.5rem 1.5rem 1.5rem",
+            minHeight: "480px",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+            border: `2px solid ${borderColor}`,
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: 8,
+            }}
+          >
+            <h4 style={{ fontWeight: 700, fontSize: "1.09rem", margin: 0 }}>
+              Filter
+            </h4>
             <button
               type="button"
               style={{
@@ -92,18 +127,30 @@ const Dashboard = () => {
                 fontWeight: 500,
               }}
               onClick={() => {
-                setExperienceFilter(""); setRatingFilter(""); setSearchTerm("");
-              }}>
+                setExperienceFilter("");
+                setRatingFilter("");
+                setSearchTerm("");
+              }}
+            >
               Reset all
             </button>
           </div>
           <div>
-            <label style={{ fontWeight: 600, fontSize: "1.01rem", marginBottom: 4, display: "block" }}>Location</label>
+            <label
+              style={{
+                fontWeight: 600,
+                fontSize: "1.01rem",
+                marginBottom: 4,
+                display: "block",
+              }}
+            >
+              Location
+            </label>
             <input
               type="search"
               placeholder="Any area"
               value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
               style={{
                 width: "100%",
                 padding: "9px 12px",
@@ -116,54 +163,206 @@ const Dashboard = () => {
             />
           </div>
           <div>
-            <button style={{
-              display: "block",
-              width: "100%",
-              background: borderColor,
-              color: "#fff",
-              padding: "9px",
-              borderRadius: "20px",
-              fontWeight: 600,
-              border: "none",
-              fontSize: "1.07rem",
-              marginBottom: "12px",
-              cursor: "pointer"
-            }} disabled>Categories</button>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 22px" }}>
+            <button
+              style={{
+                display: "block",
+                width: "100%",
+                background: borderColor,
+                color: "#fff",
+                padding: "9px",
+                borderRadius: "20px",
+                fontWeight: 600,
+                border: "none",
+                fontSize: "1.07rem",
+                marginBottom: "12px",
+                cursor: "pointer",
+              }}
+              disabled
+            >
+              Categories
+            </button>
+            <div
+              style={{ display: "flex", flexWrap: "wrap", gap: "10px 22px" }}
+            >
               <div style={{ flex: "1 0 42%", minWidth: "120px" }}>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Family Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Criminal Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Civil Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Property Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Taxation Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Immigration Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Court Representation</label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Family Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Criminal Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Civil Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Property Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Taxation Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Immigration Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Court Representation
+                </label>
               </div>
               <div style={{ flex: "1 0 42%", minWidth: "120px" }}>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Consumer Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Corporate Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Labour Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />IPR Law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Start up. Tech law</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Legal documentation</label>
-                <label style={{ display: "block", fontWeight: 400, fontSize: "0.97rem", marginBottom: "7px" }}><input type="checkbox" />Notarization</label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Consumer Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Corporate Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Labour Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  IPR Law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Start up. Tech law
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Legal documentation
+                </label>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 400,
+                    fontSize: "0.97rem",
+                    marginBottom: "7px",
+                  }}
+                >
+                  <input type="checkbox" />
+                  Notarization
+                </label>
               </div>
             </div>
           </div>
           <div style={{ marginTop: "16px" }}>
-            <button style={{
-              display: "block",
-              width: "100%",
-              background: borderColor,
-              color: "#fff",
-              padding: "9px",
-              borderRadius: "20px",
-              fontWeight: 600,
-              border: "none",
-              fontSize: "1.07rem",
-              marginBottom: "10px",
-              cursor: "pointer"
-            }} disabled>Ratings</button>
+            <button
+              style={{
+                display: "block",
+                width: "100%",
+                background: borderColor,
+                color: "#fff",
+                padding: "9px",
+                borderRadius: "20px",
+                fontWeight: 600,
+                border: "none",
+                fontSize: "1.07rem",
+                marginBottom: "10px",
+                cursor: "pointer",
+              }}
+              disabled
+            >
+              Ratings
+            </button>
             <div style={{ display: "flex", gap: "12px" }}>
               <button
                 onClick={() => setRatingFilter("")}
@@ -181,13 +380,19 @@ const Dashboard = () => {
               >
                 Any
               </button>
-              {[1, 2, 3, 4, 5].map(num => (
+              {[1, 2, 3, 4, 5].map((num) => (
                 <button
                   key={num}
                   onClick={() => setRatingFilter(num === 5 ? "4.5" : "4")}
                   style={{
-                    background: ratingFilter === (num === 5 ? "4.5" : "4") ? borderColor : "#e3eaf2",
-                    color: ratingFilter === (num === 5 ? "4.5" : "4") ? "#fff" : "#1e293b",
+                    background:
+                      ratingFilter === (num === 5 ? "4.5" : "4")
+                        ? borderColor
+                        : "#e3eaf2",
+                    color:
+                      ratingFilter === (num === 5 ? "4.5" : "4")
+                        ? "#fff"
+                        : "#1e293b",
                     minWidth: "33px",
                     border: "none",
                     borderRadius: "48px",
@@ -204,15 +409,23 @@ const Dashboard = () => {
           </div>
         </aside>
         {/* Lawyers List */}
-        <section style={{
-          flex: 1,
-          minWidth: "340px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "28px",
-        }}>
+        <section
+          style={{
+            flex: 1,
+            minWidth: "340px",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "28px",
+          }}
+        >
           {filteredLawyers.length === 0 ? (
-            <p style={{ color: "#a0aec0", fontStyle: "italic", gridColumn: "span 2" }}>
+            <p
+              style={{
+                color: "#a0aec0",
+                fontStyle: "italic",
+                gridColumn: "span 2",
+              }}
+            >
               No lawyers match your criteria.
             </p>
           ) : (
@@ -235,7 +448,13 @@ const Dashboard = () => {
                 }}
                 className="lawyer-card"
               >
-                <strong style={{ color: "#1a237e", fontWeight: 600, fontSize: "1.12rem" }}>
+                <strong
+                  style={{
+                    color: "#1a237e",
+                    fontWeight: 600,
+                    fontSize: "1.12rem",
+                  }}
+                >
                   {lawyer.name}
                 </strong>
                 <span style={{ color: "#444", fontSize: "0.98rem" }}>
@@ -243,7 +462,13 @@ const Dashboard = () => {
                 </span>
                 <span style={{ color: "#778", fontSize: "0.98rem" }}>
                   Rating: {renderStars(lawyer.rating)}
-                  <span style={{ fontWeight: 600, color: borderColor, marginLeft: 4 }}>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                      color: borderColor,
+                      marginLeft: 4,
+                    }}
+                  >
                     {lawyer.rating.toFixed(1)}
                   </span>
                 </span>
@@ -262,7 +487,9 @@ const Dashboard = () => {
                     boxShadow: "0 1px 6px rgba(33,150,243,0.05)",
                     cursor: "pointer",
                   }}
-                >View Profile</button>
+                >
+                  View Profile
+                </button>
               </div>
             ))
           )}

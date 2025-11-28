@@ -19,6 +19,13 @@
   letter-spacing: -0.5px;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
+
+.navbar-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
 .navbar-brand .blue {
   color: #4338ca;
 }

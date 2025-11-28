@@ -1,0 +1,270 @@
+/* Container */
+.find-lawyer-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding-bottom: 3rem;
+}
+
+/* Header */
+.find-lawyer-header {
+  background-color: #ffffff;
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4338ca;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+/* Search and Filter Section */
+.search-filter-section {
+  padding: 2rem 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 1rem;
+}
+
+.back-button:hover {
+  color: #4338ca;
+}
+
+.back-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.search-filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid #d1d5db;
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #4338ca;
+}
+
+.filter-toggle-button {
+  width: 50px;
+  height: 50px;
+  background: #000000;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-toggle-button:hover {
+  background: #1f2937;
+}
+
+.filter-toggle-button svg {
+  color: #ffffff;
+}
+
+/* Filter Panel */
+.filter-panel {
+  background: #f9fafb;
+  padding: 0 4rem;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  align-items: end;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.filter-panel.show {
+  max-height: 300px;
+  opacity: 1;
+  padding: 2rem 4rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.filter-group select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-group select:focus {
+  border-color: #4338ca;
+}
+
+.reset-filters-button {
+  padding: 0.75rem 1.5rem;
+  background: #4338ca;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: fit-content;
+}
+
+.reset-filters-button:hover {
+  background: #3730a3;
+}
+
+/* Results Info */
+.results-info {
+  padding: 1rem 4rem;
+}
+
+.results-info p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Lawyers Grid */
+.lawyers-grid {
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* No Results */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.no-results p {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.no-results button {
+  padding: 0.875rem 2rem;
+  background: #4338ca;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.no-results button:hover {
+  background: #3730a3;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .lawyers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .search-filter-section {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .search-filter-controls {
+    width: 100%;
+  }
+
+  .filter-panel {
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .filter-panel.show {
+    padding: 1.5rem 1rem;
+  }
+
+  .results-info {
+    padding: 1rem;
+  }
+
+  .lawyers-grid {
+    padding: 0 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .lawyers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lawyer-image-container {
+    height: 300px;
+  }
+}

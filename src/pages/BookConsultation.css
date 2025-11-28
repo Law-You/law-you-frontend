@@ -1,0 +1,670 @@
+/* Container */
+.book-consultation-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 2rem 4rem 4rem;
+}
+
+/* Back Button */
+.back-button-booking {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.back-button-booking:hover {
+  color: #4338ca;
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d1d5db;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.step.active .step-number {
+  background: #4338ca;
+}
+
+.step span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.step.active span {
+  color: #1f2937;
+}
+
+.step-line {
+  width: 100px;
+  height: 2px;
+  background: #d1d5db;
+}
+
+/* Booking Content */
+.booking-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+}
+
+/* Forms Section */
+.booking-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-section {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.form-section-header {
+  background: #4338ca;
+  padding: 1rem 1.5rem;
+}
+
+.form-section-header h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Consultation Types */
+.consultation-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.consultation-type-btn {
+  padding: 2rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.consultation-type-btn.active {
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.consultation-type-btn:hover {
+  border-color: #4338ca;
+}
+
+.type-icon {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0);
+}
+
+.consultation-type-btn.active .type-icon {
+  filter: brightness(0) invert(1);
+}
+
+.consultation-type-btn span {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Form Row */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-section.half {
+  width: 100%;
+}
+
+/* Date Grid */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.date-btn {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.date-btn.active {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.date-btn:hover {
+  border-color: #4338ca;
+}
+
+/* Problem Description */
+.problem-description {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.problem-description label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.problem-title-input {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.problem-title-input:focus {
+  border-color: #4338ca;
+}
+
+.problem-description-textarea {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.problem-description-textarea:focus {
+  border-color: #4338ca;
+}
+
+/* Time Grid */
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.time-btn {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.time-btn.active {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.time-btn:hover {
+  border-color: #4338ca;
+}
+
+/* Payment Methods */
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.payment-method-btn {
+  padding: 2rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.payment-method-btn.active {
+  border-color: #4338ca;
+  background: #f3f4f6;
+}
+
+.payment-method-btn:hover {
+  border-color: #4338ca;
+}
+
+.payment-icon {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0);
+}
+
+.payment-method-btn.active .payment-icon {
+  filter: brightness(0);
+}
+
+.payment-method-btn span {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Continue Button */
+.continue-btn {
+  width: 100%;
+  padding: 1.25rem;
+  background: #4338ca;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.continue-btn:hover {
+  background: #3730a3;
+}
+
+/* Booking Summary */
+.booking-summary-card {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.summary-header {
+  background: #000000;
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+.summary-header h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.summary-content {
+  padding: 1.5rem;
+}
+
+.lawyer-summary {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.lawyer-summary img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.rating-stars-summary {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.rating-stars-summary .star.filled {
+  color: #fbbf24;
+}
+
+.rating-stars-summary .star.empty {
+  color: #d1d5db;
+}
+
+.lawyer-name-badge-summary {
+  background: #000000;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.lawyer-name-badge-summary span {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.summary-item h4 {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.summary-value {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4338ca;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.summary-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.summary-pricing {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.pricing-row.total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4338ca;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Confirmation Section */
+.confirmation-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.confirmation-card {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.lawyer-confirmation-card {
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  min-width: 250px;
+}
+
+.lawyer-name-badge-confirmation {
+  background: #000000;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.lawyer-name-badge-confirmation span {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.lawyer-confirmation-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  margin: 1rem auto;
+}
+
+.rating-stars-confirmation {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.rating-stars-confirmation .star.filled {
+  color: #fbbf24;
+}
+
+.rating-stars-confirmation .star.empty {
+  color: #d1d5db;
+}
+
+.experience-confirmation,
+.location-confirmation {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-about-confirmation,
+.btn-price-confirmation {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-about-confirmation {
+  background: #4338ca;
+  color: #ffffff;
+}
+
+.btn-about-confirmation:hover {
+  background: #3730a3;
+}
+
+.btn-price-confirmation {
+  background: #000000;
+  color: #ffffff;
+}
+
+.success-message {
+  text-align: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+  font-weight: 700;
+}
+
+.success-message h2 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  max-width: 300px;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .booking-content {
+    grid-template-columns: 1fr 320px;
+  }
+
+  .time-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .book-consultation-container {
+    padding: 1.5rem 2rem 3rem;
+  }
+
+  .booking-content {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary-card {
+    position: static;
+  }
+
+  .consultation-types,
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .time-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .confirmation-card {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-consultation-container {
+    padding: 1rem;
+  }
+
+  .step-indicator {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .step {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-line {
+    display: none;
+  }
+
+  .step span {
+    font-size: 0.875rem;
+  }
+
+  .date-grid,
+  .time-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .consultation-type-btn,
+  .payment-method-btn {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .success-message h2 {
+    font-size: 1.25rem;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+}

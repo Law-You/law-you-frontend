@@ -10,7 +10,10 @@ import About from '../pages/About';
 import SignUp from '../pages/SignUp';
 import CustomerDashboard from '../pages/customerDashboard';
 import LandingPage from '../pages/LandingPage';
-
+import ExploreServices from '../pages/exploreServices';
+import FindLawyer from '../pages/findLawyer';
+import LawyerProfile from '../pages/LawyerProfile';
+import BookConsultation from '../pages/BookConsultation';
 // Define your routes configuration
 export const routes = [
   {
@@ -37,6 +40,26 @@ export const routes = [
     path: '/signUp',
     element: <SignUp />,
     name: 'signUp'
+  },
+  {
+    path: '/exploreServices',
+    element: <ExploreServices />,
+    name: 'exploreServices'
+  },
+  {
+    path: '/findLawyer',
+    element: <FindLawyer />,
+    name: 'findLawyer'
+  },
+  {
+    path: '/lawyer/:id',
+    element: <LawyerProfile />,
+    name: 'lawyerProfile'
+  },
+  {
+    path: '/book-consultation/:lawyerId',
+    element: <BookConsultation />,
+    name: 'bookConsultation'
   }
 ];
 

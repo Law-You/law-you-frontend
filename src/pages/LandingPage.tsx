@@ -1,4 +1,5 @@
 import React from 'react';
+import courtImage from '../assets/court.png';
 
 const brandBlue = '#4338ca';
 const lightGray = '#f8f9fa';
@@ -9,7 +10,7 @@ const borderGray = '#e5e7eb';
 const LandingPage = () => (
   <div
     style={{
-      fontFamily: `'Inter', 'Segoe UI', Arial, sans-serif`,
+      fontFamily: `Arial, sans-serif`,
       background: '#ffffff',
       minHeight: '100vh',
       padding: 0,
@@ -123,12 +124,14 @@ const LandingPage = () => (
           </div>
         </div>
 
-        {/* Right Image Placeholder */}
-        <div
+        {/* Right Image */}
+        <img
+          src={courtImage}
+          alt="Legal Services"
           style={{
             flex: '0 0 400px',
             height: '300px',
-            background: '#d1d5db',
+            objectFit: 'cover',
             borderRadius: '0.5rem',
           }}
         />

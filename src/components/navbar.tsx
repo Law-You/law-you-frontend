@@ -1,5 +1,7 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './navbar-clean.css';
+import logo from '../assets/lawyou.png';
 
 const Navbar = () => {
   const location = useLocation();
@@ -8,60 +10,30 @@ const Navbar = () => {
     <div className="navbar">
       {/* Branding on the left */}
       <div className="navbar-brand">
-        <span className="blue">LAW</span>
-        <span className="black"> YOU</span>
+        <img src={logo} alt="LawYou" className="navbar-logo" />
       </div>
-
       {/* Navigation links on the right */}
       <nav className="nav-links">
         <Link
           to="/"
           className={`nav-link${location.pathname === '/' ? ' active' : ''}`}
-        >
-          HOME
-        </Link>
-
+        >HOME</Link>
         <Link
-          to="/for-client"
-          className={`nav-link${location.pathname === '/for-client' ? ' active' : ''}`}
-        >
-          FOR CLIENT
-        </Link>
-
+          to="/exploreServices"
+          className={`nav-link${location.pathname === '/exploreServices' ? ' active' : ''}`}
+        >EXPLORE SERVICES</Link>
         <Link
-          to="/for-lawyers"
-          className={`nav-link${location.pathname === '/for-lawyers' ? ' active' : ''}`}
-        >
-          FOR LAWYERS
-        </Link>
-
-        <Link
-          to="/admin"
-          className={`nav-link${location.pathname === '/admin' ? ' active' : ''}`}
-        >
-          ADMIN
-        </Link>
-
-        <Link
-          to="/legal-topics"
-          className={`nav-link${location.pathname === '/legal-topics' ? ' active' : ''}`}
-        >
-          LEGAL TOPICS
-        </Link>
-
+          to="/findLawyer"
+          className={`nav-link${location.pathname === '/findLawyer' ? ' active' : ''}`}
+        >FIND A LAWYER</Link>
         <Link
           to="/login"
           className={`nav-link${location.pathname === '/login' ? ' active' : ''}`}
-        >
-          Log in
-        </Link>
-
+        >LOGIN</Link>
         <Link
-          to="/book-consultation"
+          to="/findLawyer"
           className="nav-button"
-        >
-          Book Consultation
-        </Link>
+        >Book Consultation</Link>
       </nav>
     </div>
   );

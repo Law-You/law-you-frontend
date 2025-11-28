@@ -1,4 +1,4 @@
-import React from 'react';
+
 import courtImage from '../assets/court.png';
 
 const brandBlue = '#4338ca';

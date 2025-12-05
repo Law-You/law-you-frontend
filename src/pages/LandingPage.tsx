@@ -1,4 +1,5 @@
 
+import { useNavigate } from 'react-router-dom';
 import courtImage from '../assets/court.png';
 
 const brandBlue = '#4338ca';
@@ -7,7 +8,10 @@ const darkText = '#1f2937';
 const grayText = '#6b7280';
 const borderGray = '#e5e7eb';
 
-const LandingPage = () => (
+const LandingPage = () => {
+  const navigate = useNavigate();
+  
+  return (
   <div
     style={{
       fontFamily: `Arial, sans-serif`,
@@ -59,6 +63,7 @@ const LandingPage = () => (
           {/* Action Buttons */}
           <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }}>
             <button
+              onClick={() => navigate('/findLawyer')}
               style={{
                 padding: '0.75rem 1.5rem',
                 background: brandBlue,
@@ -73,6 +78,7 @@ const LandingPage = () => (
               Find a Lawyer
             </button>
             <button
+              onClick={() => navigate('/findLawyer')}
               style={{
                 padding: '0.75rem 1.5rem',
                 background: lightGray,
@@ -289,6 +295,7 @@ const LandingPage = () => (
       </section>
     </main>
   </div>
-);
+  );
+};
 
 export default LandingPage;

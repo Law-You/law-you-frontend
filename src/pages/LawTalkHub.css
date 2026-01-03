@@ -1,0 +1,330 @@
+.lawtalk-hub {
+  min-height: 100vh;
+  background-color: #1E1E1E;
+  color: #ffffff;
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 2rem 0;
+}
+
+.lawtalk-hub-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Title Section */
+.lawtalk-title-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.lawtalk-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.lawtalk-subtitle {
+  font-size: 1.125rem;
+  color: #ffffff;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Search Bar */
+.lawtalk-search-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.lawtalk-search-bar {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.25rem;
+}
+
+.search-icon {
+  color: #666666;
+  margin-right: 0.75rem;
+  font-size: 1.5rem !important;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #000000;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.search-input::placeholder {
+  color: #999999;
+}
+
+/* Filter Tabs */
+.lawtalk-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.lawtalk-tab {
+  padding: 0.625rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.lawtalk-tab:hover {
+  background-color: #f3f4f6;
+}
+
+.lawtalk-tab.active {
+  background-color: #251790;
+  color: #ffffff;
+}
+
+/* Threads List */
+.lawtalk-threads {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.lawtalk-thread-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: #000000;
+}
+
+.thread-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.thread-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.thread-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #251790;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.thread-author-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.thread-expand-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  transition: color 0.2s;
+}
+
+.thread-expand-button:hover {
+  color: #251790;
+}
+
+.expand-icon {
+  font-size: 1.5rem !important;
+}
+
+.thread-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #251790;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+/* Thread Replies */
+.thread-replies {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.thread-reply {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reply-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reply-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reply-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.reply-author-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.reply-content {
+  font-size: 0.9375rem;
+  color: #000000;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reply-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reply-like-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  transition: color 0.2s;
+}
+
+.reply-like-button:hover {
+  color: #251790;
+}
+
+.like-icon {
+  font-size: 1.125rem !important;
+}
+
+.reply-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #251790;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  transition: opacity 0.2s;
+}
+
+.reply-button:hover {
+  opacity: 0.8;
+}
+
+/* Start a Thought Button */
+.start-thought-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #251790;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s;
+  font-family: 'Inter', Arial, sans-serif;
+  z-index: 100;
+}
+
+.start-thought-button:hover {
+  background-color: #1d1269;
+}
+
+.plus-icon {
+  font-size: 1.25rem !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lawtalk-title {
+    font-size: 2rem;
+  }
+
+  .lawtalk-hub-container {
+    padding: 0 1rem;
+  }
+
+  .lawtalk-tabs {
+    gap: 0.5rem;
+  }
+
+  .lawtalk-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .start-thought-button {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+

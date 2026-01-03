@@ -1,0 +1,261 @@
+.lawyer-dashboard {
+  min-height: 100vh;
+  background-color: #1E1E1E;
+  padding: 4rem 2rem;
+  color: #ffffff;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.dashboard-title-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.dashboard-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.dashboard-subtitle {
+  font-size: 1.125rem;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.dashboard-widgets-top {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.widget-card {
+  border-radius: 1rem;
+  padding: 2rem;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blue-card {
+  background-color: #251790;
+}
+
+.black-card {
+  background-color: #000000;
+  border: 1px solid #404040;
+}
+
+.widget-icon {
+  color: #ffffff;
+  font-size: 2rem !important;
+  margin-bottom: 1rem;
+}
+
+.widget-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.widget-main-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.widget-detail {
+  font-size: 0.875rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.red-text {
+  color: #ef4444 !important;
+  opacity: 1 !important;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.schedule-item {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.dashboard-widgets-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+/* Cases Directory Card */
+.cases-directory-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.directory-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 1.5rem 0;
+}
+
+.cases-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cases-table thead th {
+  text-align: left;
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cases-table tbody td {
+  padding: 1.25rem 0;
+  font-size: 0.875rem;
+  color: #000000;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.client-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.client-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #251790;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.status-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-badge.discovery {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.settled {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.filed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.action-link {
+  color: #251790;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}
+
+/* Review Card */
+.review-card {
+  background-color: #000000;
+  border: 1px solid #404040;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.review-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.star-icon {
+  color: #fbbf24 !important;
+  font-size: 1.25rem !important;
+}
+
+.review-text {
+  font-size: 0.875rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  flex: 1;
+}
+
+.review-author {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-widgets-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-widgets-top {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+  }
+  
+  .cases-table {
+    font-size: 0.75rem;
+  }
+  
+  .cases-table thead th,
+  .cases-table tbody td {
+    padding: 0.75rem 0;
+  }
+}
+

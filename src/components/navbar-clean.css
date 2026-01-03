@@ -1,13 +1,12 @@
 /* --- NAVBAR BRANDING --- */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-bottom: 1px solid #e5e7eb;
-  background: #ffffff;
+  background: #1E1E1E;
   width: 100%;
   box-sizing: border-box;
+  gap: 2rem;
 }
 
 /* --- BRAND SECTION --- */
@@ -21,7 +20,7 @@
 }
 
 .navbar-logo {
-  height: 80px;
+  height: 50px;
   width: auto;
   object-fit: contain;
 }
@@ -33,35 +32,50 @@
   color: #4338ca;
 }
 
-/* --- LINKS RIGHT SIDE --- */
+/* --- LINKS LEFT SIDE (after logo) --- */
 .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.nav-links-left {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
+.nav-links-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
 .nav-link {
-  color: #6b7280;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 0.875rem;
 }
 
 .nav-link:hover {
-  color: #1f2937;
+  color: #cccccc;
 }
 
 /* Active route styling */
 .nav-link.active {
-  color: #1f2937;
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 600;
 }
 
-/* Book Consultation Button */
+/* Log In Button */
 .nav-button {
-  padding: 0.5rem 1rem;
-  background: #4338ca;
+  padding: 0.5rem 1.5rem;
+  background: #004DE6;
   color: #fff;
   border: none;
   border-radius: 0.375rem;
@@ -70,10 +84,29 @@
   cursor: pointer;
   transition: background-color 0.2s;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 0.875rem;
 }
 
 .nav-button:hover {
-  background: #3730a3;
+  background: #0040c4;
+}
+
+/* Hamburger Button in Navbar */
+.hamburger-button-nav {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+
+.hamburger-icon-nav {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 /* Responsive: for smaller screens */

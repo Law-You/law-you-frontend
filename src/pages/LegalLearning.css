@@ -1,0 +1,407 @@
+.legal-learning-page {
+  min-height: 100vh;
+  background-color: #1E1E1E;
+  color: #ffffff;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 4rem 2rem;
+  background-color: #1E1E1E;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-title-small {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.hero-title-large {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: #ffffff;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.get-started-button {
+  align-self: flex-start;
+  padding: 0.875rem 2rem;
+  background-color: #251790;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.get-started-button:hover {
+  background-color: #1d1269;
+}
+
+.hero-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-wrapper {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-circle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.image-overlay-top,
+.image-overlay-bottom {
+  position: absolute;
+  background-color: #251790;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.image-overlay-top {
+  top: 1rem;
+  left: 1rem;
+}
+
+.image-overlay-bottom {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.overlay-icon {
+  color: #ffffff;
+  font-size: 2rem !important;
+}
+
+.overlay-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.overlay-label {
+  font-size: 0.875rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Features Section */
+.features-section {
+  padding: 4rem 2rem;
+  background-color: #1E1E1E;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: #2a2a2a;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Legal Insights Section */
+.insights-section {
+  padding: 4rem 2rem;
+  background-color: #1E1E1E;
+}
+
+.insights-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insights-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.insights-description {
+  font-size: 1.125rem;
+  color: #ffffff;
+  opacity: 0.9;
+  text-align: center;
+  margin: 0 0 3rem 0;
+  line-height: 1.6;
+}
+
+.blog-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.blog-card {
+  background-color: #2a2a2a;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.blog-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.blog-category {
+  font-weight: 600;
+}
+
+.blog-date {
+  opacity: 0.8;
+}
+
+.blog-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 4rem 2rem;
+  background-color: #251790;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 3rem 0;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.author-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.author-designation {
+  font-size: 0.875rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Footer Section */
+.learning-footer {
+  padding: 3rem 2rem;
+  background-color: #1E1E1E;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 1.125rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-image-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section,
+  .features-section,
+  .insights-section,
+  .testimonials-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-title-large {
+    font-size: 2.5rem;
+  }
+
+  .hero-image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .image-overlay-top,
+  .image-overlay-bottom {
+    padding: 0.75rem 1rem;
+  }
+
+  .overlay-icon {
+    font-size: 1.5rem !important;
+  }
+
+  .overlay-number {
+    font-size: 1.25rem;
+  }
+
+  .insights-title,
+  .testimonials-title {
+    font-size: 2rem;
+  }
+
+  .learning-footer {
+    padding: 2rem 1.5rem;
+  }
+}
+

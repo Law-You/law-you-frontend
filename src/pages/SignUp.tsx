@@ -9,8 +9,9 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { Visibility, VisibilityOff, Home } from '@mui/icons-material';
-import logo from '../assets/lawyou.png';
+import logo from '../assets/lawyouNewLogo2.svg';
 import '../styles/login.css';
+import { theme } from '../constants/theme';
 
 // Custom Animated Toggle Button Group Component
 interface RoleToggleProps {
@@ -32,7 +33,7 @@ const RoleToggle: React.FC<RoleToggleProps> = ({ value, onChange }) => {
       sx={{
         position: 'relative',
         display: 'flex',
-        backgroundColor: '#D9D9D9',
+        backgroundColor: theme.colors.backgroundDark,
         marginBottom: '40px',
         width: '100%',
         borderRadius: '8px',
@@ -47,7 +48,7 @@ const RoleToggle: React.FC<RoleToggleProps> = ({ value, onChange }) => {
           left: `${(selectedIndex * 100) / 3}%`,
           width: `${100 / 3}%`,
           height: '100%',
-          backgroundColor: '#251790',
+          backgroundColor: theme.colors.primary,
           transition: 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           zIndex: 0,
           borderRadius: selectedIndex === 0 
@@ -72,7 +73,7 @@ const RoleToggle: React.FC<RoleToggleProps> = ({ value, onChange }) => {
             border: 'none',
             position: 'relative',
             zIndex: 1,
-            color: value === option.value ? '#ffffff' : '#251790',
+            color: value === option.value ? theme.colors.textWhite : theme.colors.primary,
             backgroundColor: 'transparent',
             transition: 'color 0.3s ease',
             borderRadius: 0,
@@ -137,27 +138,26 @@ const SignUp: React.FC = () => {
           top: '24px',
           left: '24px',
           zIndex: 1000,
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          color: '#ffffff',
+          backgroundColor: theme.colors.backgroundBlack,
+          color: theme.colors.textWhite,
           '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            backgroundColor: theme.colors.backgroundBlackHover,
           },
         }}
       >
         <Home />
       </IconButton>
 
-      {/* Left Panel - Dark Blue/Black Background */}
+      {/* Left Panel - White Background */}
       <Box
         sx={{
           width: '50%',
-          backgroundColor: '#0a0e27',
-          background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)',
+          backgroundColor: theme.colors.background,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'flex-start',
-          padding: '60px 80px',
+          padding: { xs: '40px 40px', md: '60px 80px', lg: '80px 100px' },
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -167,40 +167,53 @@ const SignUp: React.FC = () => {
           sx={{
             position: 'relative',
             zIndex: 1,
-            maxWidth: '500px',
+            width: '100%',
+            maxWidth: '600px',
           }}
         >
           {/* Logo */}
-          <Box sx={{ marginBottom: '50px' }}>
+          <Box sx={{ marginBottom: '-170px', marginLeft: '-55px' }}>
             <Box
               component="img"
               src={logo}
               alt="LawYou"
               sx={{
-                backgroundColor: '#ffffff',
-                borderRadius: '12px',
-                padding: '6px 12px',
-                maxWidth: '200px',
+                maxWidth: '280px',
+                width: '100%',
                 height: 'auto',
+                objectFit: 'contain',
+                display: 'block',
               }}
             />
           </Box>
 
           {/* Headline */}
-          <Box sx={{ marginBottom: '30px' }}>
+          <Box sx={{ marginBottom: '40px' }}>
             <Typography
               variant="h2"
               sx={{
-                fontWeight: 500,
-                color: '#ffffff',
-                fontSize: '3.5rem',
-                lineHeight: 1.2,
-                marginBottom: '20px',
+                fontWeight: 600,
+                color: theme.colors.textPrimary,
+                fontSize: { xs: '1.5rem', md: '2.5rem', lg: '3rem' },
+                lineHeight: 1.1,
+                marginBottom: '24px',
+                letterSpacing: '-0.02em',
               }}
             >
               Define the future of
-              <br />
-              <span style={{ fontSize: '4.5rem' }}>JUSTICE</span>
+            </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                fontWeight: 800,
+                color: theme.colors.primary,
+                fontSize: { xs: '3.5rem', md: '5rem', lg: '6rem' },
+                lineHeight: 1,
+                letterSpacing: '-0.03em',
+                marginTop: '-10px',
+              }}
+            >
+              JUSTICE
             </Typography>
           </Box>
 
@@ -209,10 +222,11 @@ const SignUp: React.FC = () => {
             <Typography
               variant="body1"
               sx={{
-                color: '#ffffff',
-                fontSize: '1.1rem',
-                lineHeight: 1.8,
-                opacity: 0.9,
+                color: theme.colors.textSecondary,
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                lineHeight: 1.75,
+                fontWeight: 400,
+                maxWidth: '520px',
               }}
             >
               Access the world's most advanced legal learning modules. Connect
@@ -226,7 +240,7 @@ const SignUp: React.FC = () => {
       <Box
         sx={{
           width: '50%',
-          backgroundColor: '#000000',
+          backgroundColor: theme.colors.backgroundBlack,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -240,7 +254,7 @@ const SignUp: React.FC = () => {
             variant="h3"
             sx={{
               fontWeight: 700,
-              color: '#ffffff',
+              color: theme.colors.textWhite,
               marginBottom: '16px',
               fontSize: '2.5rem',
               textAlign: 'center',
@@ -253,7 +267,7 @@ const SignUp: React.FC = () => {
           <Typography
             variant="body1"
             sx={{
-              color: '#ffffff',
+              color: theme.colors.textWhite,
               marginBottom: '40px',
               fontSize: '1rem',
               opacity: 0.8,
@@ -288,17 +302,17 @@ const SignUp: React.FC = () => {
                     borderColor: '#606060',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#3b82f6',
+                    borderColor: '#146ADA',
                   },
                 },
                 '& .MuiInputLabel-root': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                   '&.Mui-focused': {
-                    color: '#3b82f6',
+                    color: '#146ADA',
                   },
                 },
                 '& .MuiInputBase-input': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                 },
               }}
             />
@@ -323,17 +337,17 @@ const SignUp: React.FC = () => {
                     borderColor: '#606060',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#3b82f6',
+                    borderColor: '#146ADA',
                   },
                 },
                 '& .MuiInputLabel-root': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                   '&.Mui-focused': {
-                    color: '#3b82f6',
+                    color: '#146ADA',
                   },
                 },
                 '& .MuiInputBase-input': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                 },
               }}
             />
@@ -358,17 +372,17 @@ const SignUp: React.FC = () => {
                     borderColor: '#606060',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#3b82f6',
+                    borderColor: '#146ADA',
                   },
                 },
                 '& .MuiInputLabel-root': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                   '&.Mui-focused': {
-                    color: '#3b82f6',
+                    color: '#146ADA',
                   },
                 },
                 '& .MuiInputBase-input': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                 },
               }}
               InputProps={{
@@ -407,17 +421,17 @@ const SignUp: React.FC = () => {
                     borderColor: '#606060',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#3b82f6',
+                    borderColor: '#146ADA',
                   },
                 },
                 '& .MuiInputLabel-root': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                   '&.Mui-focused': {
-                    color: '#3b82f6',
+                    color: '#146ADA',
                   },
                 },
                 '& .MuiInputBase-input': {
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                 },
               }}
               InputProps={{
@@ -427,7 +441,7 @@ const SignUp: React.FC = () => {
                       aria-label="toggle confirm password visibility"
                       onClick={toggleConfirmPasswordVisibility}
                       edge="end"
-                      sx={{ color: '#ffffff' }}
+                      sx={{ color: theme.colors.textWhite }}
                     >
                       {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
@@ -442,8 +456,8 @@ const SignUp: React.FC = () => {
               fullWidth
               variant="contained"
               sx={{
-                backgroundColor: '#2563eb',
-                color: '#ffffff',
+                backgroundColor: theme.colors.primary,
+                color: theme.colors.textWhite,
                 padding: '14px',
                 fontSize: '1rem',
                 fontWeight: 600,
@@ -451,7 +465,7 @@ const SignUp: React.FC = () => {
                 borderRadius: '8px',
                 marginBottom: '16px',
                 '&:hover': {
-                  backgroundColor: '#1d4ed8',
+                  backgroundColor: theme.colors.primaryDark,
                 },
               }}
             >
@@ -462,7 +476,7 @@ const SignUp: React.FC = () => {
             <Box sx={{ textAlign: 'center', marginBottom: '32px' }}>
               <Typography
                 sx={{
-                  color: '#ffffff',
+                  color: theme.colors.textWhite,
                   fontSize: '0.9rem',
                 }}
               >
@@ -470,7 +484,7 @@ const SignUp: React.FC = () => {
                 <Button
                   onClick={() => navigate('/login')}
                   sx={{
-                    color: '#3b82f6',
+                    color: theme.colors.primary,
                     textTransform: 'none',
                     fontSize: '0.9rem',
                     padding: 0,

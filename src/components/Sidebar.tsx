@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Person, Language, Phone, Lock, Logout, Forum } from '@mui/icons-material';
-import logo from '../assets/lawyou.png';
+import { Person, Language, Phone, Lock, Logout } from '@mui/icons-material';
+import logo from '../assets/lawYouLogoNewSvg.svg';
 import './Sidebar.css';
 
 interface SidebarProps {
@@ -41,33 +41,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             <span>My profile</span>
           </div>
           
-          <div 
-            className="sidebar-menu-item"
-            onClick={() => {
-              navigate('/lawtalk-hub');
-              onClose();
-            }}
-          >
-            <Forum className="sidebar-menu-icon" />
-            <span>LawTalk Hub</span>
-          </div>
           
-          <div className="sidebar-menu-item">
-            <Language className="sidebar-menu-icon" />
-            <span>Language</span>
-            <span className="sidebar-badge">2 New</span>
-          </div>
-          
-          <div className="sidebar-menu-item">
-            <Phone className="sidebar-menu-icon" />
-            <span>Contact us</span>
-          </div>
-          
-          <div className="sidebar-menu-item">
+          {/* <div className="sidebar-menu-item">
             <Lock className="sidebar-menu-icon" />
             <span>Privacy & Policy</span>
-          </div>
+          </div> */}
         </nav>
+
+        {/* Ad Placeholder Section */}
+        <div className="sidebar-ad-placeholder">
+          <div className="ad-placeholder-content">
+            <div className="ad-placeholder-icon">📢</div>
+            <p className="ad-placeholder-text">Partner with Us</p>
+            <p className="ad-placeholder-subtext">Showcase your brand here</p>
+          </div>
+        </div>
 
         <div className="sidebar-divider" />
         

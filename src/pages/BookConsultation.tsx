@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import videoCameraIcon from '../assets/videoCamera.svg';
+import phoneIcon from '../assets/phone.svg';
+import personIcon from '../assets/person.svg';
+import upiIcon from '../assets/upi.svg';
+import cardIcon from '../assets/card.svg';
+import bankIcon from '../assets/bank.svg';
 import './BookConsultation.css';
-import videoIcon from '../assets/video.svg';
 
 interface Lawyer {
   id: number;
@@ -30,6 +35,7 @@ const BookConsultation = () => {
   const [problemTitle, setProblemTitle] = useState('Property Ownership Dispute with Family Member');
   const [problemDescription, setProblemDescription] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('upi');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Dummy lawyer data (in real app, fetch based on lawyerId)
   const lawyer: Lawyer = {
@@ -43,13 +49,13 @@ const BookConsultation = () => {
   };
 
   const dates = [
-    '16th Oct', '16th Oct', '23rd Oct', '16th Oct',
-    '16th Oct', '16th Oct'
+    '16th Oct', '18th Oct', '20th Oct', '23rd Oct',
+    '25th Oct', '27th Oct'
   ];
 
   const times = [
-    '9:00 am', '9:00 am', '9:00 am', '9:00 am', '9:00 am',
-    '9:00 am', '9:00 am', '9:00 am', '9:00 am', '9:00 am'
+    '9:00 am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm',
+    '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm'
   ];
 
   const renderStars = (rating: number) => {
@@ -67,7 +73,32 @@ const BookConsultation = () => {
   };
 
   const handleContinue = () => {
+    if (currentStep === 1) {
+      // Validate step 1 fields
+      if (!consultationType) {
+        setErrorMessage('Please select a consultation type');
+        setTimeout(() => setErrorMessage(''), 4000);
+        return;
+      }
+      if (!selectedDate || selectedDateIndex === null) {
+        setErrorMessage('Please select a date for your consultation');
+        setTimeout(() => setErrorMessage(''), 4000);
+        return;
+      }
+      if (!selectedTime || selectedTimeIndex === null) {
+        setErrorMessage('Please select a time for your consultation');
+        setTimeout(() => setErrorMessage(''), 4000);
+        return;
+      }
+      if (!problemTitle.trim()) {
+        setErrorMessage('Please enter a title for your problem');
+        setTimeout(() => setErrorMessage(''), 4000);
+        return;
+      }
+    }
+    
     if (currentStep < 3) {
+      setErrorMessage('');
       setCurrentStep(currentStep + 1);
     }
   };
@@ -122,7 +153,6 @@ const BookConsultation = () => {
           <div className="summary-item">
             <h4>Title</h4>
             <div className="summary-value">
-              <img src={videoIcon} alt="icon" className="summary-icon" />
               <span>{problemTitle}</span>
             </div>
           </div>
@@ -130,7 +160,6 @@ const BookConsultation = () => {
           <div className="summary-item">
             <h4>Consultation Details</h4>
             <div className="summary-value">
-              <img src={videoIcon} alt="icon" className="summary-icon" />
               <span>{consultationType === 'video' ? 'Video Consultation' : consultationType === 'phone' ? 'Phone Consultation' : 'In-Person Consultation'}</span>
             </div>
           </div>
@@ -138,7 +167,6 @@ const BookConsultation = () => {
           <div className="summary-item">
             <h4>Consultation Timings</h4>
             <div className="summary-value">
-              <img src={videoIcon} alt="icon" className="summary-icon" />
               <span>{selectedDate || '23rd Oct'}, {selectedTime || '9:00 am'}</span>
             </div>
           </div>
@@ -171,6 +199,14 @@ const BookConsultation = () => {
       {/* Step Indicator */}
       {renderStepIndicator()}
 
+      {/* Error Toast */}
+      {errorMessage && (
+        <div className="booking-toast">
+          <span className="toast-icon">⚠️</span>
+          {errorMessage}
+        </div>
+      )}
+
       <div className="booking-content">
         {/* Left Column - Forms */}
         <div className="booking-forms">
@@ -184,23 +220,32 @@ const BookConsultation = () => {
                 <div className="consultation-types">
                   <button 
                     className={`consultation-type-btn ${consultationType === 'video' ? 'active' : ''}`}
-                    onClick={() => setConsultationType('video')}
+                    onClick={() => {
+                      setConsultationType('video');
+                      setErrorMessage('');
+                    }}
                   >
-                    <img src={videoIcon} alt="video" className="type-icon" />
+                    <img src={videoCameraIcon} alt="Video" className="type-icon" />
                     <span>video call</span>
                   </button>
                   <button 
                     className={`consultation-type-btn ${consultationType === 'phone' ? 'active' : ''}`}
-                    onClick={() => setConsultationType('phone')}
+                    onClick={() => {
+                      setConsultationType('phone');
+                      setErrorMessage('');
+                    }}
                   >
-                    <img src={videoIcon} alt="phone" className="type-icon" />
+                    <img src={phoneIcon} alt="Phone" className="type-icon" />
                     <span>Phone call</span>
                   </button>
                   <button 
                     className={`consultation-type-btn ${consultationType === 'in-person' ? 'active' : ''}`}
-                    onClick={() => setConsultationType('in-person')}
+                    onClick={() => {
+                      setConsultationType('in-person');
+                      setErrorMessage('');
+                    }}
                   >
-                    <img src={videoIcon} alt="in-person" className="type-icon" />
+                    <img src={personIcon} alt="In Person" className="type-icon" />
                     <span>In - Person</span>
                   </button>
                 </div>
@@ -220,6 +265,7 @@ const BookConsultation = () => {
                         onClick={() => {
                           setSelectedDate(date);
                           setSelectedDateIndex(index);
+                          setErrorMessage('');
                         }}
                       >
                         {date}
@@ -237,7 +283,10 @@ const BookConsultation = () => {
                     <input 
                       type="text" 
                       value={problemTitle}
-                      onChange={(e) => setProblemTitle(e.target.value)}
+                      onChange={(e) => {
+                        setProblemTitle(e.target.value);
+                        setErrorMessage('');
+                      }}
                       className="problem-title-input"
                     />
                     <label>Description:</label>
@@ -264,6 +313,7 @@ const BookConsultation = () => {
                       onClick={() => {
                         setSelectedTime(time);
                         setSelectedTimeIndex(index);
+                        setErrorMessage('');
                       }}
                     >
                       {time}
@@ -284,21 +334,21 @@ const BookConsultation = () => {
                   className={`payment-method-btn ${paymentMethod === 'upi' ? 'active' : ''}`}
                   onClick={() => setPaymentMethod('upi')}
                 >
-                  <img src={videoIcon} alt="UPI" className="payment-icon" />
+                  <img src={upiIcon} alt="UPI" className="payment-icon" />
                   <span>UPI</span>
                 </button>
                 <button 
                   className={`payment-method-btn ${paymentMethod === 'card' ? 'active' : ''}`}
                   onClick={() => setPaymentMethod('card')}
                 >
-                  <img src={videoIcon} alt="Card" className="payment-icon" />
+                  <img src={cardIcon} alt="Card" className="payment-icon" />
                   <span>Card</span>
                 </button>
                 <button 
                   className={`payment-method-btn ${paymentMethod === 'netbanking' ? 'active' : ''}`}
                   onClick={() => setPaymentMethod('netbanking')}
                 >
-                  <img src={videoIcon} alt="Net banking" className="payment-icon" />
+                  <img src={bankIcon} alt="Net Banking" className="payment-icon" />
                   <span>Net banking</span>
                 </button>
               </div>

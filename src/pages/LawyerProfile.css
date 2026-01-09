@@ -23,7 +23,7 @@
 }
 
 .back-button-profile:hover {
-  color: #4338ca;
+  color: #146ADA;
 }
 
 .back-button-profile svg {
@@ -114,7 +114,7 @@
   width: calc(100% - 3rem);
   margin: 0 1.5rem 1.5rem;
   padding: 1rem;
-  background: #4338ca;
+  background: #146ADA;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -126,7 +126,7 @@
 }
 
 .book-consultation-btn:hover {
-  background: #3730a3;
+  background: #0E5AA8;
 }
 
 /* Details Column (Middle) */

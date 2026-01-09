@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from '@mui/material';
 import LawyerCard from '../components/LawyerCard';
 import './findLawyer.css';
 
 interface Lawyer {
   id: number;
   name: string;
-  specialization: string;
+  specialization: string | string[];
   experience: number;
   rating: number;
   location: string;
@@ -26,93 +32,93 @@ const FindLawyer = () => {
     location: 'all'
   });
 
-  // Dummy lawyer data
+  // Dummy lawyer data - using public folder paths for better performance
   const lawyers: Lawyer[] = [
     {
       id: 1,
-      name: 'Lusy Salvator',
-      specialization: 'Criminal Law',
+      name: 'Priya Sharma',
+      specialization: ['Criminal Law', 'Traffic Law', 'DUI Defense'],
       experience: 12,
       rating: 4.8,
-      location: 'New York',
-      imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
+      location: 'Mumbai',
+      imageUrl: '/lawyers/womenLawyer.jpg',
       casesWon: 145,
       hourlyRate: 350
     },
     {
       id: 2,
-      name: 'John Anderson',
-      specialization: 'Corporate Law',
+      name: 'Rajesh Kumar',
+      specialization: ['Corporate Law', 'Business Law', 'Mergers & Acquisitions'],
       experience: 15,
       rating: 4.9,
-      location: 'Los Angeles',
-      imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
+      location: 'Delhi',
+      imageUrl: '/lawyers/maleLawyer1.jpg',
       casesWon: 210,
       hourlyRate: 450
     },
     {
       id: 3,
-      name: 'Sarah Mitchell',
+      name: 'Anjali Patel',
       specialization: 'Family Law',
       experience: 8,
       rating: 4.7,
-      location: 'Chicago',
-      imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400',
+      location: 'Ahmedabad',
+      imageUrl: '/lawyers/womenlawyer2.jpg',
       casesWon: 98,
       hourlyRate: 280
     },
     {
       id: 4,
-      name: 'Michael Chen',
-      specialization: 'Intellectual Property',
+      name: 'Vikram Singh',
+      specialization: ['Intellectual Property', 'Patent Law', 'Trademark Law'],
       experience: 10,
       rating: 4.6,
-      location: 'San Francisco',
-      imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400',
+      location: 'Bangalore',
+      imageUrl: '/lawyers/menLawyer3.jpg',
       casesWon: 132,
       hourlyRate: 400
     },
     {
       id: 5,
-      name: 'Emily Rodriguez',
+      name: 'Meera Reddy',
       specialization: 'Immigration Law',
       experience: 7,
       rating: 4.8,
-      location: 'Miami',
-      imageUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
+      location: 'Hyderabad',
+      imageUrl: '/lawyers/womenLawyer3.jpg',
       casesWon: 87,
       hourlyRate: 300
     },
     {
       id: 6,
-      name: 'David Thompson',
-      specialization: 'Real Estate Law',
+      name: 'Arjun Malhotra',
+      specialization: ['Real Estate Law', 'Property Law', 'Landlord-Tenant Law'],
       experience: 20,
       rating: 4.9,
-      location: 'Boston',
-      imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
+      location: 'Chennai',
+      imageUrl: '/lawyers/maleLawyer2.jpg',
       casesWon: 275,
       hourlyRate: 500
     },
     {
       id: 7,
-      name: 'Jessica Williams',
-      specialization: 'Employment Law',
+      name: 'Kavita Nair',
+      specialization: ['Employment Law', 'Labor Law'],
       experience: 9,
       rating: 4.7,
-      location: 'Seattle',
-      imageUrl: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400',
+      location: 'Pune',
+      imageUrl: '/lawyers/womenLawyer.jpg',
       casesWon: 115,
       hourlyRate: 320
     },
     {
       id: 8,
-      name: 'Robert Martinez',
+      name: 'Rohit Desai',
       specialization: 'Tax Law',
       experience: 14,
       rating: 4.8,
-      location: 'Houston',
-      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+      location: 'Kolkata',
+      imageUrl: '/lawyers/maleLawyer1.jpg',
       casesWon: 189,
       hourlyRate: 420
     }
@@ -120,11 +126,18 @@ const FindLawyer = () => {
 
   // Filter lawyers based on search and filters
   const filteredLawyers = lawyers.filter(lawyer => {
+    const specializations = Array.isArray(lawyer.specialization) 
+      ? lawyer.specialization 
+      : [lawyer.specialization];
+    const specializationStr = specializations.join(' ').toLowerCase();
+    
     const matchesSearch = lawyer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         lawyer.specialization.toLowerCase().includes(searchQuery.toLowerCase());
+                         specializationStr.includes(searchQuery.toLowerCase());
     
     const matchesSpecialization = filters.specialization === 'all' || 
-                                 lawyer.specialization === filters.specialization;
+                                 (Array.isArray(lawyer.specialization) 
+                                   ? lawyer.specialization.includes(filters.specialization)
+                                   : lawyer.specialization === filters.specialization);
     
     const matchesExperience = filters.experience === 'all' ||
                              (filters.experience === '0-5' && lawyer.experience <= 5) ||
@@ -163,9 +176,9 @@ const FindLawyer = () => {
   return (
     <div className="find-lawyer-container">
       {/* Header */}
-      <div className="find-lawyer-header">
+      {/* <div className="find-lawyer-header">
         <h1 className="page-title">OUR LAWYERS</h1>
-      </div>
+      </div> */}
 
       {/* Search and Filter Section */}
       <div className="search-filter-section">
@@ -200,68 +213,80 @@ const FindLawyer = () => {
 
       {/* Filter Panel */}
       <div className={`filter-panel ${showFilters ? 'show' : ''}`}>
-          <div className="filter-group">
-            <label>Specialization</label>
-            <select 
+          <FormControl className="filter-group" variant="outlined">
+            <InputLabel id="specialization-label">Specialization</InputLabel>
+            <Select
+              labelId="specialization-label"
+              id="specialization-select"
               value={filters.specialization}
               onChange={(e) => handleFilterChange('specialization', e.target.value)}
+              label="Specialization"
             >
-              <option value="all">All Specializations</option>
-              <option value="Criminal Law">Criminal Law</option>
-              <option value="Corporate Law">Corporate Law</option>
-              <option value="Family Law">Family Law</option>
-              <option value="Intellectual Property">Intellectual Property</option>
-              <option value="Immigration Law">Immigration Law</option>
-              <option value="Real Estate Law">Real Estate Law</option>
-              <option value="Employment Law">Employment Law</option>
-              <option value="Tax Law">Tax Law</option>
-            </select>
-          </div>
+              <MenuItem value="all">All Specializations</MenuItem>
+              <MenuItem value="Criminal Law">Criminal Law</MenuItem>
+              <MenuItem value="Corporate Law">Corporate Law</MenuItem>
+              <MenuItem value="Family Law">Family Law</MenuItem>
+              <MenuItem value="Intellectual Property">Intellectual Property</MenuItem>
+              <MenuItem value="Immigration Law">Immigration Law</MenuItem>
+              <MenuItem value="Real Estate Law">Real Estate Law</MenuItem>
+              <MenuItem value="Employment Law">Employment Law</MenuItem>
+              <MenuItem value="Tax Law">Tax Law</MenuItem>
+            </Select>
+          </FormControl>
 
-          <div className="filter-group">
-            <label>Experience</label>
-            <select 
+          <FormControl className="filter-group" variant="outlined">
+            <InputLabel id="experience-label">Experience</InputLabel>
+            <Select
+              labelId="experience-label"
+              id="experience-select"
               value={filters.experience}
               onChange={(e) => handleFilterChange('experience', e.target.value)}
+              label="Experience"
             >
-              <option value="all">All Experience Levels</option>
-              <option value="0-5">0-5 years</option>
-              <option value="6-10">6-10 years</option>
-              <option value="11-15">11-15 years</option>
-              <option value="16+">16+ years</option>
-            </select>
-          </div>
+              <MenuItem value="all">All Experience Levels</MenuItem>
+              <MenuItem value="0-5">0-5 years</MenuItem>
+              <MenuItem value="6-10">6-10 years</MenuItem>
+              <MenuItem value="11-15">11-15 years</MenuItem>
+              <MenuItem value="16+">16+ years</MenuItem>
+            </Select>
+          </FormControl>
 
-          <div className="filter-group">
-            <label>Rating</label>
-            <select 
+          <FormControl className="filter-group" variant="outlined">
+            <InputLabel id="rating-label">Rating</InputLabel>
+            <Select
+              labelId="rating-label"
+              id="rating-select"
               value={filters.rating}
               onChange={(e) => handleFilterChange('rating', e.target.value)}
+              label="Rating"
             >
-              <option value="all">All Ratings</option>
-              <option value="4.5+">4.5+ Stars</option>
-              <option value="4.7+">4.7+ Stars</option>
-              <option value="4.9+">4.9+ Stars</option>
-            </select>
-          </div>
+              <MenuItem value="all">All Ratings</MenuItem>
+              <MenuItem value="4.5+">4.5+ Stars</MenuItem>
+              <MenuItem value="4.7+">4.7+ Stars</MenuItem>
+              <MenuItem value="4.9+">4.9+ Stars</MenuItem>
+            </Select>
+          </FormControl>
 
-          <div className="filter-group">
-            <label>Location</label>
-            <select 
+          <FormControl className="filter-group" variant="outlined">
+            <InputLabel id="location-label">Location</InputLabel>
+            <Select
+              labelId="location-label"
+              id="location-select"
               value={filters.location}
               onChange={(e) => handleFilterChange('location', e.target.value)}
+              label="Location"
             >
-              <option value="all">All Locations</option>
-              <option value="New York">New York</option>
-              <option value="Los Angeles">Los Angeles</option>
-              <option value="Chicago">Chicago</option>
-              <option value="San Francisco">San Francisco</option>
-              <option value="Miami">Miami</option>
-              <option value="Boston">Boston</option>
-              <option value="Seattle">Seattle</option>
-              <option value="Houston">Houston</option>
-            </select>
-          </div>
+              <MenuItem value="all">All Locations</MenuItem>
+              <MenuItem value="Mumbai">Mumbai</MenuItem>
+              <MenuItem value="Delhi">Delhi</MenuItem>
+              <MenuItem value="Ahmedabad">Ahmedabad</MenuItem>
+              <MenuItem value="Bangalore">Bangalore</MenuItem>
+              <MenuItem value="Hyderabad">Hyderabad</MenuItem>
+              <MenuItem value="Chennai">Chennai</MenuItem>
+              <MenuItem value="Pune">Pune</MenuItem>
+              <MenuItem value="Kolkata">Kolkata</MenuItem>
+            </Select>
+          </FormControl>
 
           <button className="reset-filters-button" onClick={resetFilters}>
             Reset Filters

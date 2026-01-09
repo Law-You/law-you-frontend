@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { School, People } from '@mui/icons-material';
 import learnAnytimeIcon from '../assets/learnAnytime.png';
 import trackProgressIcon from '../assets/trackProgress.png';
 import connectWithIcon from '../assets/connectWith.png';
-import legalLearningImage from '../assets/legallearning.png';
-import lawyerDashboardImage from './lawyerDashboard.png';
+import legalLearningImage from '../assets/legalLearningNew.jpg';
+import banner1 from '../assets/lawYouBanner1.jpeg';
+import banner2 from '../assets/lawYouBanner2.jpeg';
+import banner4 from '../assets/lawYouBanner4.jpeg';
 import './LegalLearning.css';
 
 const LegalLearning: React.FC = () => {
@@ -14,21 +15,21 @@ const LegalLearning: React.FC = () => {
   const blogPosts = [
     {
       id: 1,
-      image: lawyerDashboardImage,
+      image: banner1,
       category: 'Growth',
       date: 'Feb 15 2024',
       title: 'Navigating the complexities of corporate Law: Key Insights'
     },
     {
       id: 2,
-      image: lawyerDashboardImage,
+      image: banner2,
       category: 'Growth',
       date: 'Feb 15 2024',
       title: 'Ethical Dilemmas in criminal Justice: A Deep Dive'
     },
     {
       id: 3,
-      image: lawyerDashboardImage,
+      image: banner4,
       category: 'Growth',
       date: 'Feb 15 2024',
       title: 'The Future of Environmental Law: Trends and Predictions'
@@ -74,20 +75,6 @@ const LegalLearning: React.FC = () => {
           <div className="hero-image-container">
             <div className="hero-image-wrapper">
               <img src={legalLearningImage} alt="Legal Learning" className="hero-circle-image" />
-              <div className="image-overlay-top">
-                <School className="overlay-icon" />
-                <div className="overlay-text">
-                  <div className="overlay-number">50+</div>
-                  <div className="overlay-label">Tutors</div>
-                </div>
-              </div>
-              <div className="image-overlay-bottom">
-                <People className="overlay-icon" />
-                <div className="overlay-text">
-                  <div className="overlay-number">2k</div>
-                  <div className="overlay-label">Sources</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -163,13 +150,13 @@ const LegalLearning: React.FC = () => {
       </section>
 
       {/* Footer Section */}
-      <section className="learning-footer">
+      {/* <section className="learning-footer">
         <div className="footer-container">
           <p className="footer-text">
             This corner is exclusively for students and teachers your go-to place for clean notes, smart resources, and everything you need to level up your legal learning.
           </p>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

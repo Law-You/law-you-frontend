@@ -2,14 +2,14 @@
 .lawyer-card-flip {
   perspective: 1000px;
   width: 100%;
-  height: 520px;
+  height: 380px;
 }
 
 .lawyer-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.5s ease-in-out;
   transform-style: preserve-3d;
 }
 
@@ -48,16 +48,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.lawyer-card-flip:hover .lawyer-card-front .lawyer-image {
-  transform: scale(1.05);
 }
 
 .lawyer-card-front .lawyer-name-badge {
   background: #000000;
-  padding: 1.25rem;
+  padding: 0.875rem;
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -66,7 +61,7 @@
 
 .lawyer-card-front .lawyer-name-badge h3 {
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 0;
@@ -80,13 +75,14 @@
   flex-direction: column;
   align-items: center;
   padding: 0;
-  justify-content: space-between;
+  justify-content: flex-start;
+  position: relative;
 }
 
 .card-back-header {
   background: #000000;
   width: 100%;
-  padding: 1.25rem;
+  padding: 0.875rem;
   text-align: center;
   border-radius: 12px 12px 0 0;
   margin-bottom: 0;
@@ -94,7 +90,7 @@
 
 .card-back-header h3 {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 0;
@@ -102,21 +98,27 @@
 
 /* Content Area */
 .card-back-content {
-  padding: 1.5rem;
+  padding: 0.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  min-height: 0;
+  width: 100%;
+  padding-bottom: 4.5rem;
+  box-sizing: border-box;
 }
 
 /* Avatar on back */
 .lawyer-avatar {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #e5e7eb;
-  margin: 0.5rem 0 1rem;
+  border: 3px solid #e5e7eb;
+  margin: 0.25rem auto 0.75rem;
+  flex-shrink: 0;
 }
 
 .lawyer-avatar img {
@@ -129,8 +131,8 @@
 .rating-stars {
   display: flex;
   gap: 0.25rem;
-  margin: 1rem 0;
-  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  font-size: 1.125rem;
   justify-content: center;
 }
 
@@ -145,12 +147,16 @@
 /* Experience and Location */
 .experience-location {
   text-align: center;
-  margin: 1rem 0 1.5rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .experience-location p {
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
   color: #374151;
   font-weight: 500;
 }
@@ -160,98 +166,152 @@
   color: #1f2937;
 }
 
+/* Specializations Container */
+.specializations-container {
+  width: 100%;
+  margin: 0.5rem 0;
+  max-height: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.specializations-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.specializations-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.specializations-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.specializations-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.specializations-badges {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  min-width: max-content;
+}
+
+.specialization-badge-lawyer-card {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.2;
+}
+
 /* Action Buttons */
 .card-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   width: 100%;
-  margin-top: auto;
   background: #ebebeb;
-  padding: 1.25rem 1.5rem;
+  padding: 0.875rem 1rem;
   border-radius: 0 0 12px 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-shrink: 0;
 }
 
 .btn-about,
 .btn-book {
   flex: 1;
-  padding: 0.875rem 1rem;
+  padding: 0.625rem 0.75rem;
   border: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .btn-about {
   background: #ffffff;
-  color: #4338ca;
-  border: 2px solid #4338ca;
+  color: #146ADA;
+  border: 2px solid #146ADA;
 }
 
 .btn-about:hover {
-  background: #4338ca;
+  background: #146ADA;
   color: #ffffff;
 }
 
 .btn-book {
-  background: #4338ca;
+  background: #146ADA;
   color: #ffffff;
 }
 
 .btn-book:hover {
-  background: #3730a3;
+  background: #0E5AA8;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .lawyer-card-flip {
-    height: 450px;
+    height: 350px;
   }
 
   .card-back-header h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .lawyer-avatar {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
   }
 
   .rating-stars {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .experience-location p {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
   }
 
   .btn-about,
   .btn-book {
-    padding: 0.75rem 0.875rem;
-    font-size: 0.875rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .lawyer-card-flip {
-    height: 400px;
+    height: 320px;
   }
 
   .lawyer-card-front .lawyer-name-badge {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .lawyer-card-front .lawyer-name-badge h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .lawyer-card-back {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.75rem;
   }
 
   .lawyer-avatar {
-    width: 90px;
-    height: 90px;
+    width: 65px;
+    height: 65px;
   }
 }

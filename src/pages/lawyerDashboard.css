@@ -1,9 +1,20 @@
 .lawyer-dashboard {
   min-height: 100vh;
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
   padding: 4rem 2rem;
-  color: #ffffff;
+  color: #000000;
   font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Import theme colors */
+:root {
+  --primary: #146ADA;
+  --primary-dark: #0E5AA8;
+  --background: #FFFFFF;
+  --background-dark: #F5F5F5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border: #E5E7EB;
 }
 
 .dashboard-title-section {
@@ -14,13 +25,13 @@
 .dashboard-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   margin: 0 0 1rem 0;
 }
 
 .dashboard-subtitle {
   font-size: 1.125rem;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
   opacity: 0.9;
 }
@@ -34,54 +45,64 @@
 }
 
 .widget-card {
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
   position: relative;
-  min-height: 200px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.widget-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .blue-card {
-  background-color: #251790;
+  background: linear-gradient(135deg, #146ADA 0%, #0E5AA8 100%);
 }
 
 .black-card {
   background-color: #000000;
-  border: 1px solid #404040;
+  border: 1px solid #2a2a2a;
 }
 
 .widget-icon {
-  color: #ffffff;
-  font-size: 2rem !important;
+  color: #FFFFFF;
+  font-size: 2.5rem !important;
   margin-bottom: 1rem;
 }
 
 .widget-title {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #FFFFFF;
   margin: 0 0 1.5rem 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  opacity: 0.95;
 }
 
 .widget-main-value {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
   margin-bottom: 0.5rem;
+  line-height: 1;
 }
 
 .widget-detail {
-  font-size: 0.875rem;
-  color: #ffffff;
+  font-size: 0.9375rem;
+  color: #FFFFFF;
   opacity: 0.9;
 }
 
 .red-text {
-  color: #ef4444 !important;
+  color: #FEE2E2 !important;
   opacity: 1 !important;
+  font-weight: 700;
 }
 
 .schedule-list {
@@ -92,8 +113,14 @@
 
 .schedule-item {
   font-size: 1rem;
-  color: #ffffff;
+  color: #FFFFFF;
   font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
 }
 
 .dashboard-widgets-bottom {
@@ -107,8 +134,10 @@
 /* Cases Directory Card */
 .cases-directory-card {
   background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
 }
 
 .directory-title {
@@ -147,16 +176,17 @@
 }
 
 .client-avatar {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background-color: #251790;
-  color: #ffffff;
+  background-color: #146ADA;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.875rem;
+  flex-shrink: 0;
 }
 
 .status-badge {
@@ -183,30 +213,36 @@
 }
 
 .action-link {
-  color: #251790;
+  color: #146ADA;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
 }
 
 .action-link:hover {
-  text-decoration: underline;
+  color: #0E5AA8;
+  background-color: rgba(20, 106, 218, 0.1);
+  text-decoration: none;
 }
 
 /* Review Card */
 .review-card {
   background-color: #000000;
-  border: 1px solid #404040;
-  border-radius: 1rem;
-  padding: 2rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .review-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 1.5rem 0;
 }
 
 .review-stars {
@@ -221,16 +257,18 @@
 }
 
 .review-text {
-  font-size: 0.875rem;
-  color: #ffffff;
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
+  font-size: 0.9375rem;
+  color: #FFFFFF;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
   flex: 1;
+  opacity: 0.95;
 }
 
 .review-author {
-  font-size: 0.75rem;
-  color: #9ca3af;
+  font-size: 0.8125rem;
+  color: #9CA3AF;
+  font-weight: 500;
 }
 
 /* Responsive */

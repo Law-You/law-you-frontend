@@ -7,7 +7,7 @@ const ClientDashboard: React.FC = () => {
     <div className="client-dashboard">
       {/* Title Section */}
       <div className="dashboard-title-section">
-        <h1 className="dashboard-title">Client Dashboard</h1>
+        <h1 className="dashboard-title">Client Profile</h1>
         <p className="dashboard-subtitle">Welcome back. Here is your overview.</p>
       </div>
 

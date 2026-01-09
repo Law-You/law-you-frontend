@@ -5,7 +5,7 @@ interface LawyerCardProps {
   lawyer: {
     id: number;
     name: string;
-    specialization: string;
+    specialization: string | string[];
     experience: number;
     rating: number;
     location: string;
@@ -17,6 +17,7 @@ interface LawyerCardProps {
 
 const LawyerCard = ({ lawyer }: LawyerCardProps) => {
   const navigate = useNavigate();
+
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -45,6 +46,8 @@ const LawyerCard = ({ lawyer }: LawyerCardProps) => {
               src={lawyer.imageUrl} 
               alt={lawyer.name}
               className="lawyer-image"
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.src = 'https://via.placeholder.com/400x500/4338ca/ffffff?text=' + lawyer.name.split(' ').map(n => n[0]).join('');
@@ -67,6 +70,8 @@ const LawyerCard = ({ lawyer }: LawyerCardProps) => {
               <img 
                 src={lawyer.imageUrl} 
                 alt={lawyer.name}
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = 'https://via.placeholder.com/120/4338ca/ffffff?text=' + lawyer.name.split(' ').map(n => n[0]).join('');
@@ -81,12 +86,38 @@ const LawyerCard = ({ lawyer }: LawyerCardProps) => {
             <div className="experience-location">
               <p>{lawyer.experience}+ years of experience</p>
               <p>{lawyer.location}</p>
+              <div className="specializations-container">
+                <div className="specializations-badges">
+                  {Array.isArray(lawyer.specialization) 
+                    ? lawyer.specialization.map((spec, index) => (
+                        <span key={index} className="specialization-badge-lawyer-card">
+                          {spec}
+                        </span>
+                      ))
+                    : (
+                        <span className="specialization-badge-lawyer-card">
+                          {lawyer.specialization}
+                        </span>
+                      )
+                  }
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="card-actions">
-            <button className="btn-about" onClick={() => navigate(`/lawyer/${lawyer.id}`)}>About</button>
-            <button className="btn-book" onClick={() => navigate(`/book-consultation/${lawyer.id}`)}>Book now</button>
+            <button 
+              className="btn-about" 
+              onClick={() => navigate(`/lawyer/${lawyer.id}`)}
+            >
+              About
+            </button>
+            <button 
+              className="btn-book" 
+              onClick={() => navigate(`/book-consultation/${lawyer.id}`)}
+            >
+              Book now
+            </button>
           </div>
         </div>
       </div>

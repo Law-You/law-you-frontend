@@ -1,14 +1,25 @@
 .legal-learning-page {
   min-height: 100vh;
-  background-color: #1E1E1E;
-  color: #ffffff;
+  background-color: #FFFFFF;
+  color: #000000;
   font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Import theme colors */
+:root {
+  --primary: #146ADA;
+  --primary-dark: #0E5AA8;
+  --background: #FFFFFF;
+  --background-dark: #F5F5F5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --accent: #251790;
 }
 
 /* Hero Section */
 .hero-section {
   padding: 4rem 2rem;
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
 }
 
 .hero-container {
@@ -29,22 +40,22 @@
 .hero-title-small {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
 }
 
 .hero-title-large {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
   line-height: 1.2;
 }
 
 .hero-description {
   font-size: 1.125rem;
-  color: #ffffff;
-  opacity: 0.9;
+  color: #000000;
+  opacity: 0.8;
   line-height: 1.6;
   margin: 0;
 }
@@ -52,19 +63,22 @@
 .get-started-button {
   align-self: flex-start;
   padding: 0.875rem 2rem;
-  background-color: #251790;
+  background-color: #146ADA;
   color: #ffffff;
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   font-family: 'Inter', Arial, sans-serif;
+  box-shadow: 0 4px 12px rgba(20, 106, 218, 0.3);
 }
 
 .get-started-button:hover {
-  background-color: #1d1269;
+  background-color: #0E5AA8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(20, 106, 218, 0.4);
 }
 
 .hero-image-container {
@@ -95,7 +109,7 @@
 .image-overlay-top,
 .image-overlay-bottom {
   position: absolute;
-  background-color: #251790;
+  background-color: #146ADA;
   border-radius: 0.75rem;
   padding: 1rem 1.5rem;
   display: flex;
@@ -140,7 +154,7 @@
 /* Features Section */
 .features-section {
   padding: 4rem 2rem;
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
 }
 
 .features-container {
@@ -152,7 +166,7 @@
 }
 
 .feature-card {
-  background-color: #2a2a2a;
+  background-color: #F5F5F5;
   border-radius: 1rem;
   padding: 2.5rem 2rem;
   display: flex;
@@ -160,6 +174,13 @@
   align-items: center;
   text-align: center;
   gap: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #E5E7EB;
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 
 .feature-icon {
@@ -171,13 +192,13 @@
 .feature-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
 }
 
 .feature-description {
   font-size: 1rem;
-  color: #ffffff;
+  color: #000000;
   opacity: 0.8;
   line-height: 1.6;
   margin: 0;
@@ -186,7 +207,7 @@
 /* Legal Insights Section */
 .insights-section {
   padding: 4rem 2rem;
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
 }
 
 .insights-container {
@@ -197,15 +218,15 @@
 .insights-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
   margin: 0 0 1rem 0;
 }
 
 .insights-description {
   font-size: 1.125rem;
-  color: #ffffff;
-  opacity: 0.9;
+  color: #000000;
+  opacity: 0.8;
   text-align: center;
   margin: 0 0 3rem 0;
   line-height: 1.6;
@@ -218,11 +239,18 @@
 }
 
 .blog-card {
-  background-color: #2a2a2a;
+  background-color: #F5F5F5;
   border-radius: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid #E5E7EB;
+}
+
+.blog-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
 }
 
 .blog-image {
@@ -242,7 +270,7 @@
   display: flex;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #ffffff;
+  color: #000000;
   opacity: 0.7;
 }
 
@@ -257,7 +285,7 @@
 .blog-title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
   line-height: 1.5;
 }
@@ -265,7 +293,7 @@
 /* Testimonials Section */
 .testimonials-section {
   padding: 4rem 2rem;
-  background-color: #251790;
+  background-color: #000000;
 }
 
 .testimonials-container {
@@ -288,12 +316,20 @@
 }
 
 .testimonial-card {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .testimonial-quote {
@@ -324,7 +360,7 @@
 /* Footer Section */
 .learning-footer {
   padding: 3rem 2rem;
-  background-color: #1E1E1E;
+  background-color: #000000;
 }
 
 .footer-container {

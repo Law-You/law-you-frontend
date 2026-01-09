@@ -30,15 +30,12 @@
 }
 
 .sidebar-logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 2rem 1.5rem;
   border-bottom: 1px solid #e5e7eb;
 }
 
 .sidebar-logo-img {
-  height: 80px;
+  height: 40px;
+  margin: 25px 10px 10px 10px;
   width: auto;
 }
 
@@ -85,12 +82,57 @@
 
 .sidebar-badge {
   margin-left: auto;
-  background-color: #004DE6;
+  background-color: #146ADA;
   color: #ffffff;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+/* Ad Placeholder */
+.sidebar-ad-placeholder {
+  margin: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+  border: 2px dashed #D1D5DB;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.sidebar-ad-placeholder:hover {
+  border-color: #146ADA;
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 106, 218, 0.15);
+}
+
+.ad-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ad-placeholder-icon {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+.ad-placeholder-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #146ADA;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.ad-placeholder-subtext {
+  font-size: 0.8125rem;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 .sidebar-divider {

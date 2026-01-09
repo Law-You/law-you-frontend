@@ -1,10 +1,87 @@
 import React, { useState } from 'react';
-import { Person, Language, Payment, Delete, Camera } from '@mui/icons-material';
+import { Person, Delete, Camera, Edit } from '@mui/icons-material';
 import profileIcon from '../assets/profileicon.png';
 import './ProfileSettings.css';
 
+interface ProfileData {
+  fullName: string;
+  email: string;
+  phone: string;
+  location: string;
+  bio: string;
+  photo: string;
+}
+
 const ProfileSettings: React.FC = () => {
-  const [activeMenuItem, setActiveMenuItem] = useState('edit-profile');
+  const [activeMenuItem, setActiveMenuItem] = useState('my-profile');
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [isEditingPersonalInfo, setIsEditingPersonalInfo] = useState(false);
+  
+  const [profileData, setProfileData] = useState<ProfileData>({
+    fullName: '',
+    email: '',
+    phone: '',
+    location: '',
+    bio: '',
+    photo: profileIcon
+  });
+
+  const [tempData, setTempData] = useState<ProfileData>(profileData);
+
+  // Calculate completion percentage
+  const calculateCompletion = () => {
+    const fields = [
+      profileData.fullName,
+      profileData.email,
+      profileData.phone,
+      profileData.location
+    ];
+    const filledFields = fields.filter(field => field.trim() !== '').length;
+    return Math.round((filledFields / fields.length) * 100);
+  };
+
+  const completion = calculateCompletion();
+
+  // Get completion color (red to yellow to green)
+  const getCompletionColor = (percentage: number) => {
+    if (percentage <= 33) return '#EF4444'; // Red
+    if (percentage <= 66) return '#F59E0B'; // Orange/Yellow
+    return '#22C55E'; // Green
+  };
+
+  const handleEditProfile = () => {
+    setTempData(profileData);
+    setIsEditingProfile(true);
+  };
+
+  const handleCancelProfileEdit = () => {
+    setTempData(profileData);
+    setIsEditingProfile(false);
+  };
+
+  const handleSaveProfile = () => {
+    setProfileData(tempData);
+    setIsEditingProfile(false);
+  };
+
+  const handleEditPersonalInfo = () => {
+    setTempData(profileData);
+    setIsEditingPersonalInfo(true);
+  };
+
+  const handleCancelPersonalInfo = () => {
+    setTempData(profileData);
+    setIsEditingPersonalInfo(false);
+  };
+
+  const handleSavePersonalInfo = () => {
+    setProfileData(tempData);
+    setIsEditingPersonalInfo(false);
+  };
+
+  const handleInputChange = (field: keyof ProfileData, value: string) => {
+    setTempData(prev => ({ ...prev, [field]: value }));
+  };
 
   return (
     <div className="profile-settings-page">
@@ -17,27 +94,11 @@ const ProfileSettings: React.FC = () => {
             
             <nav className="profile-nav-menu">
               <div 
-                className={`profile-nav-item ${activeMenuItem === 'edit-profile' ? 'active' : ''}`}
-                onClick={() => setActiveMenuItem('edit-profile')}
+                className={`profile-nav-item ${activeMenuItem === 'my-profile' ? 'active' : ''}`}
+                onClick={() => setActiveMenuItem('my-profile')}
               >
                 <Person className="profile-nav-icon" />
-                <span>Edit Profile</span>
-              </div>
-              
-              <div 
-                className={`profile-nav-item ${activeMenuItem === 'language' ? 'active' : ''}`}
-                onClick={() => setActiveMenuItem('language')}
-              >
-                <Language className="profile-nav-icon" />
-                <span>Language</span>
-              </div>
-              
-              <div 
-                className={`profile-nav-item ${activeMenuItem === 'payments' ? 'active' : ''}`}
-                onClick={() => setActiveMenuItem('payments')}
-              >
-                <Payment className="profile-nav-icon" />
-                <span>Payments</span>
+                <span>My profile</span>
               </div>
             </nav>
 
@@ -49,64 +110,143 @@ const ProfileSettings: React.FC = () => {
 
           {/* Center Content */}
           <div className="profile-center-content">
+            {/* User Name Header */}
+            <div className="profile-user-header">
+              <h1 className="profile-user-name">
+                {profileData.fullName || 'Guest User'}
+              </h1>
+              <p className="profile-user-subtitle">Manage your profile information</p>
+            </div>
             {/* Edit Profile Card */}
             <div className="profile-card">
-              <h2 className="profile-card-title">Edit Profile</h2>
-              <div className="profile-picture-section">
-                <div className="profile-picture-container">
-                  <img src={profileIcon} alt="Profile" className="profile-picture-image" />
-                  <button className="profile-camera-button">
-                    <Camera className="camera-icon" />
+              <div className="card-header-with-action">
+                <h2 className="profile-card-title">Edit Profile</h2>
+                {!isEditingProfile && (
+                  <button className="edit-action-button" onClick={handleEditProfile}>
+                    <Edit className="edit-icon" />
+                    Edit
                   </button>
-                </div>
-                <div className="profile-upload-info">
-                  <p className="upload-text">Upload new photo</p>
-                  <p className="upload-details">At least 600 x 600 px recommended.</p>
-                  <p className="upload-details">JPG or PNG is allowed</p>
-                </div>
+                )}
               </div>
-              <button className="edit-button">Edit</button>
+              
+              {isEditingProfile ? (
+                <>
+                  <div className="profile-picture-section">
+                    <div className="profile-picture-container">
+                      <img src={tempData.photo} alt="Profile" className="profile-picture-image" />
+                      <button className="profile-camera-button">
+                        <Camera className="camera-icon" />
+                      </button>
+                    </div>
+                    <div className="profile-upload-info">
+                      <p className="upload-text">Upload new photo</p>
+                      <p className="upload-details">At least 600 x 600 px recommended.</p>
+                      <p className="upload-details">JPG or PNG is allowed</p>
+                    </div>
+                  </div>
+                  <div className="form-actions">
+                    <button className="cancel-button" onClick={handleCancelProfileEdit}>Cancel</button>
+                    <button className="save-button" onClick={handleSaveProfile}>Save changes</button>
+                  </div>
+                </>
+              ) : (
+                <div className="profile-picture-section">
+                  <div className="profile-picture-container">
+                    <img src={profileData.photo} alt="Profile" className="profile-picture-image" />
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Personal Info Card */}
             <div className="profile-card">
-              <h2 className="profile-card-title">Personal Info</h2>
-              <div className="personal-info-form">
-                <div className="form-row">
-                  <div className="form-field">
-                    <label>Full Name</label>
-                    <input type="text" className="form-input" />
-                  </div>
-                  <div className="form-field">
-                    <label>Mail</label>
-                    <input type="email" className="form-input" />
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-field">
-                    <label>Phone</label>
-                    <input type="tel" className="form-input" />
-                  </div>
-                  <div className="form-field">
-                    <label>Location</label>
-                    <input type="text" className="form-input" />
-                  </div>
-                </div>
-                <div className="form-actions">
-                  <button className="cancel-button">Cancel</button>
-                  <button className="save-button">Save changes</button>
-                </div>
+              <div className="card-header-with-action">
+                <h2 className="profile-card-title">Personal Info</h2>
+                {!isEditingPersonalInfo && (
+                  <button className="edit-action-button" onClick={handleEditPersonalInfo}>
+                    <Edit className="edit-icon" />
+                    Edit
+                  </button>
+                )}
               </div>
+              
+              {isEditingPersonalInfo ? (
+                <div className="personal-info-form">
+                  <div className="form-row">
+                    <div className="form-field">
+                      <label>Full Name</label>
+                      <input 
+                        type="text" 
+                        className="form-input" 
+                        value={tempData.fullName}
+                        onChange={(e) => handleInputChange('fullName', e.target.value)}
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    <div className="form-field">
+                      <label>Email</label>
+                      <input 
+                        type="email" 
+                        className="form-input" 
+                        value={tempData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-field">
+                      <label>Phone</label>
+                      <input 
+                        type="tel" 
+                        className="form-input" 
+                        value={tempData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+                    <div className="form-field">
+                      <label>Location</label>
+                      <input 
+                        type="text" 
+                        className="form-input" 
+                        value={tempData.location}
+                        onChange={(e) => handleInputChange('location', e.target.value)}
+                        placeholder="Enter your location"
+                      />
+                    </div>
+                  </div>
+                  <div className="form-actions">
+                    <button className="cancel-button" onClick={handleCancelPersonalInfo}>Cancel</button>
+                    <button className="save-button" onClick={handleSavePersonalInfo}>Save changes</button>
+                  </div>
+                </div>
+              ) : (
+                <div className="info-display">
+                  <div className="info-row">
+                    <div className="info-item">
+                      <label>Full Name</label>
+                      <p>{profileData.fullName || 'Not set'}</p>
+                    </div>
+                    <div className="info-item">
+                      <label>Email</label>
+                      <p>{profileData.email || 'Not set'}</p>
+                    </div>
+                  </div>
+                  <div className="info-row">
+                    <div className="info-item">
+                      <label>Phone</label>
+                      <p>{profileData.phone || 'Not set'}</p>
+                    </div>
+                    <div className="info-item">
+                      <label>Location</label>
+                      <p>{profileData.location || 'Not set'}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Bio Card */}
-            <div className="profile-card">
-              <h2 className="profile-card-title">Bio</h2>
-              <textarea 
-                className="bio-textarea"
-                placeholder="Here for the legal help"
-              />
-            </div>
           </div>
 
           {/* Right Sidebar */}
@@ -125,28 +265,32 @@ const ProfileSettings: React.FC = () => {
                   cx="50"
                   cy="50"
                   r="45"
-                  strokeDasharray={`${80 * 2.827} ${100 * 2.827}`}
+                  stroke={getCompletionColor(completion)}
+                  strokeDasharray={`${completion * 2.827} ${100 * 2.827}`}
                   transform="rotate(-90 50 50)"
                 />
               </svg>
-              <div className="progress-text">80%</div>
+              <div className="progress-text" style={{ color: getCompletionColor(completion) }}>
+                {completion}%
+              </div>
               <div className="progress-label">Completed</div>
             </div>
             
             <div className="profile-checklist">
-              <div className="checklist-item completed">
-                <span className="checkmark">✓</span>
-                <span>Set up account</span>
+              <div className={`checklist-item ${profileData.fullName ? 'completed' : ''}`}>
+                {profileData.fullName && <span className="checkmark">✓</span>}
+                <span>Full Name</span>
               </div>
-              <div className="checklist-item completed">
-                <span className="checkmark">✓</span>
-                <span>Upload photo</span>
+              <div className={`checklist-item ${profileData.email ? 'completed' : ''}`}>
+                {profileData.email && <span className="checkmark">✓</span>}
+                <span>Email</span>
               </div>
-              <div className="checklist-item completed">
-                <span className="checkmark">✓</span>
-                <span>Personal info</span>
+              <div className={`checklist-item ${profileData.phone ? 'completed' : ''}`}>
+                {profileData.phone && <span className="checkmark">✓</span>}
+                <span>Phone</span>
               </div>
-              <div className="checklist-item">
+              <div className={`checklist-item ${profileData.location ? 'completed' : ''}`}>
+                {profileData.location && <span className="checkmark">✓</span>}
                 <span>Location</span>
               </div>
             </div>

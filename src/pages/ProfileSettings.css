@@ -1,44 +1,50 @@
 .profile-settings-page {
   min-height: 100vh;
-  background-color: #000000;
-  color: #ffffff;
+  background: #FFFFFF;
+  color: #000000;
   font-family: 'Inter', Arial, sans-serif;
   position: relative;
   overflow-x: hidden;
+  padding: 1rem 2rem;
 }
 
 .profile-main-content {
-  padding: 2rem;
+  padding: 0;
 }
 
 /* Profile Layout */
 .profile-layout {
   display: grid;
-  grid-template-columns: 250px 1fr 300px;
-  gap: 2rem;
-  max-width: 1400px;
+  grid-template-columns: 280px 1fr 320px;
+  gap: 2.5rem;
+  max-width: 1500px;
   margin: 0 auto;
-  padding-top: 4rem;
+  padding-top: 1rem;
 }
 
 /* Left Sidebar */
 .profile-left-sidebar {
   display: flex;
   flex-direction: column;
+  background: #000000;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  height: fit-content;
+  margin-top: 12rem; /* Aligns with Edit Profile section, accounting for user header height */
 }
 
 .profile-page-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #FFFFFF;
   margin: 0 0 0.5rem 0;
 }
 
 .profile-page-subtitle {
-  font-size: 1rem;
-  color: #ffffff;
-  opacity: 0.8;
-  margin: 0 0 3rem 0;
+  font-size: 0.9375rem;
+  color: #CCCCCC;
+  margin: 0 0 2.5rem 0;
 }
 
 .profile-nav-menu {
@@ -52,27 +58,48 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.875rem 1rem;
+  padding: 1rem 1.25rem;
   cursor: pointer;
-  color: #ffffff;
+  color: #CCCCCC;
   font-size: 0.9375rem;
   font-weight: 500;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .profile-nav-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  transform: translateX(5px);
 }
 
 .profile-nav-item.active {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background: #146ADA;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(20, 106, 218, 0.4);
+}
+
+.profile-nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: #FFFFFF;
+  border-radius: 0 4px 4px 0;
 }
 
 .profile-nav-icon {
   font-size: 1.25rem !important;
-  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.profile-nav-item.active .profile-nav-icon,
+.profile-nav-item:hover .profile-nav-icon {
+  color: #FFFFFF;
 }
 
 .delete-account-button {
@@ -107,17 +134,116 @@
   gap: 2rem;
 }
 
+/* User Name Header */
+.profile-user-header {
+  padding: 1.5rem 0;
+  border-bottom: 2px solid #E5E7EB;
+  margin-bottom: 1rem;
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
+}
+
+.profile-user-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.profile-user-subtitle {
+  font-size: 1rem;
+  color: #666666;
+  margin: 0;
+}
+
 .profile-card {
-  background-color: #2a2a2a;
+  background: #FFFFFF;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-header-with-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.edit-action-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: #000000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-action-button:hover {
+  background: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-icon {
+  font-size: 1rem !important;
+}
+
+.info-display {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-item label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item p {
+  font-size: 1rem;
+  color: #000000;
+  margin: 0;
+  padding: 0.75rem;
+  background: #F9FAFB;
+  border-radius: 0.5rem;
+  border: 1px solid #E5E7EB;
 }
 
 .profile-card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
 }
 
 /* Profile Picture Section */
@@ -143,30 +269,38 @@
   height: 150px;
   border-radius: 50%;
   object-fit: contain;
-  /* background-color: #3a3a3a; */
+  background: #F5F5F5;
   padding: 2.5rem;
   box-sizing: border-box;
-  filter: brightness(0) invert(1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 4px solid #E5E7EB;
 }
 
 .profile-camera-button {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 40px;
-  height: 40px;
-  background-color: #ffffff;
-  border: none;
+  width: 45px;
+  height: 45px;
+  background: #000000;
+  border: 3px solid #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.profile-camera-button:hover {
+  transform: scale(1.1);
+  background: #333333;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .camera-icon {
-  color: #000000;
+  color: #FFFFFF;
   font-size: 1.25rem !important;
 }
 
@@ -176,32 +310,35 @@
 
 .upload-text {
   font-size: 1rem;
-  color: #ffffff;
+  color: #000000;
   margin: 0 0 0.5rem 0;
   font-weight: 500;
 }
 
 .upload-details {
   font-size: 0.875rem;
-  color: #ffffff;
+  color: #000000;
   opacity: 0.7;
   margin: 0.25rem 0;
 }
 
 .edit-button {
-  padding: 0.75rem 2rem;
+  padding: 0.875rem 2.5rem;
   background-color: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  border-radius: 0.5rem;
+  border: 2px solid #000000;
+  color: #000000;
+  border-radius: 0.75rem;
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .edit-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: #000000;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Personal Info Form */
@@ -226,22 +363,25 @@
 .form-field label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
 }
 
 .form-input {
-  padding: 0.75rem;
-  background-color: #1a1a1a;
-  border: 1px solid #404040;
-  border-radius: 0.5rem;
-  color: #ffffff;
+  padding: 0.875rem 1rem;
+  background-color: #FAFAFA;
+  border: 2px solid #E5E7EB;
+  border-radius: 0.75rem;
+  color: #000000;
   font-size: 0.9375rem;
   font-family: 'Inter', Arial, sans-serif;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .form-input:focus {
-  border-color: #ffffff;
+  border-color: #146ADA;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(20, 106, 218, 0.1);
 }
 
 .form-actions {
@@ -252,35 +392,41 @@
 }
 
 .cancel-button {
-  padding: 0.75rem 2rem;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  border-radius: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  background-color: #FEE2E2;
+  border: 2px solid #FCA5A5;
+  color: #991B1B;
+  border-radius: 0.75rem;
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .cancel-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #FECACA;
+  border-color: #F87171;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
 }
 
 .save-button {
-  padding: 0.75rem 2rem;
-  background-color: #3a3a3a;
+  padding: 0.875rem 2.5rem;
+  background: #146ADA;
   border: none;
   color: #ffffff;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(20, 106, 218, 0.3);
 }
 
 .save-button:hover {
-  background-color: #4a4a4a;
+  background: #0E5AA8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 106, 218, 0.4);
 }
 
 /* Bio Textarea */
@@ -288,18 +434,21 @@
   width: 100%;
   min-height: 150px;
   padding: 1rem;
-  background-color: #1a1a1a;
-  border: 1px solid #404040;
-  border-radius: 0.5rem;
-  color: #ffffff;
+  background-color: #FAFAFA;
+  border: 2px solid #E5E7EB;
+  border-radius: 0.75rem;
+  color: #000000;
   font-size: 0.9375rem;
   font-family: 'Inter', Arial, sans-serif;
   resize: vertical;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .bio-textarea:focus {
-  border-color: #ffffff;
+  border-color: #146ADA;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(20, 106, 218, 0.1);
 }
 
 .bio-textarea::placeholder {
@@ -311,13 +460,20 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  background: #000000;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  height: fit-content;
+  margin-top: 12rem; /* Aligns with Edit Profile section, accounting for user header height */
 }
 
 .complete-profile-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 2rem 0;
+  text-align: center;
 }
 
 .progress-circle-container {
@@ -335,16 +491,15 @@
 
 .progress-circle-background {
   fill: none;
-  stroke: #2a2a2a;
+  stroke: #404040;
   stroke-width: 8;
 }
 
 .progress-circle-fill {
   fill: none;
-  stroke: #004DE6;
   stroke-width: 8;
   stroke-linecap: round;
-  transition: stroke-dasharray 0.3s ease;
+  transition: stroke-dasharray 0.6s ease, stroke 0.6s ease;
 }
 
 .progress-text {
@@ -354,7 +509,7 @@
   transform: translate(-50%, -60%);
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
 }
 
 .progress-label {
@@ -363,8 +518,8 @@
   left: 50%;
   transform: translate(-50%, 20%);
   font-size: 0.875rem;
-  color: #ffffff;
-  opacity: 0.8;
+  color: #CCCCCC;
+  opacity: 0.9;
 }
 
 .profile-checklist {
@@ -378,7 +533,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 0.9375rem;
-  color: #ffffff;
+  color: #CCCCCC;
 }
 
 .checklist-item.completed {

@@ -7,7 +7,7 @@ const StudentDashboard: React.FC = () => {
     <div className="student-dashboard">
       {/* Title Section */}
       <div className="dashboard-title-section">
-        <h1 className="dashboard-title">Student Dashboard</h1>
+        <h1 className="dashboard-title">Student Profile</h1>
         <p className="dashboard-subtitle">Welcome back. Here is your overview.</p>
       </div>
 

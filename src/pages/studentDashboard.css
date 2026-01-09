@@ -1,9 +1,20 @@
 .student-dashboard {
   min-height: 100vh;
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
   padding: 4rem 2rem;
-  color: #ffffff;
+  color: #000000;
   font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Import theme colors */
+:root {
+  --primary: #146ADA;
+  --primary-dark: #0E5AA8;
+  --background: #FFFFFF;
+  --background-dark: #F5F5F5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border: #E5E7EB;
 }
 
 .dashboard-title-section {
@@ -14,13 +25,13 @@
 .dashboard-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   margin: 0 0 1rem 0;
 }
 
 .dashboard-subtitle {
   font-size: 1.125rem;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
   opacity: 0.9;
 }
@@ -35,10 +46,17 @@
 
 /* Course Progress Card */
 .course-progress-card {
-  background-color: #251790;
-  border-radius: 1rem;
-  padding: 2rem;
+  background: linear-gradient(135deg, #146ADA 0%, #0E5AA8 100%);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
   position: relative;
+  box-shadow: 0 8px 24px rgba(20, 106, 218, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-progress-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(20, 106, 218, 0.35);
 }
 
 .card-header {
@@ -49,30 +67,31 @@
 }
 
 .card-icon {
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 2rem !important;
 }
 
 .card-badge {
   background-color: rgba(0, 0, 0, 0.3);
-  color: #ffffff;
+  color: #FFFFFF;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   font-size: 0.875rem;
   font-weight: 600;
+  backdrop-filter: blur(10px);
 }
 
 .course-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #FFFFFF;
   margin: 0 0 0.5rem 0;
 }
 
 .course-subtitle {
   font-size: 1rem;
-  color: #ffffff;
-  opacity: 0.9;
+  color: #FFFFFF;
+  opacity: 0.95;
   margin: 0 0 2rem 0;
 }
 
@@ -88,15 +107,16 @@
 }
 
 .progress-text {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #FFFFFF;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .time-text {
   font-size: 0.875rem;
-  color: #ffffff;
+  color: #FFFFFF;
   opacity: 0.9;
 }
 
@@ -118,22 +138,30 @@
 .resume-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #251790;
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  color: #146ADA;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .resume-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.resume-button .play-icon {
+  color: #146ADA;
 }
 
 .play-icon {
@@ -143,16 +171,18 @@
 /* Quick Notes Section */
 .quick-notes-section {
   background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 2rem;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
   width: 100%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
 }
 
 .notes-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #000000;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2rem 0;
 }
 
 .notes-list {
@@ -162,16 +192,31 @@
 }
 
 .note-item {
-  background-color: #f3f4f6;
-  border: 1px solid #251790;
-  border-radius: 0.5rem;
-  padding: 1rem;
+  background-color: #F5F5F5;
+  border: 2px solid #146ADA;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.note-item:hover {
+  background-color: #FAFAFA;
+  border-color: #0E5AA8;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(20, 106, 218, 0.15);
 }
 
 .note-text {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: #000000;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.note-text:last-child {
+  color: #666666;
   font-weight: 500;
 }
 

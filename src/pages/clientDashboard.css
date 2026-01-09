@@ -1,9 +1,20 @@
 .client-dashboard {
   min-height: 100vh;
-  background-color: #1E1E1E;
+  background-color: #FFFFFF;
   padding: 4rem 2rem;
-  color: #ffffff;
+  color: #000000;
   font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Import theme colors */
+:root {
+  --primary: #146ADA;
+  --primary-dark: #0E5AA8;
+  --background: #FFFFFF;
+  --background-dark: #F5F5F5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border: #E5E7EB;
 }
 
 .dashboard-title-section {
@@ -14,15 +25,15 @@
 .dashboard-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   margin: 0 0 1rem 0;
 }
 
 .dashboard-subtitle {
   font-size: 1.125rem;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .dashboard-cards {
@@ -34,13 +45,20 @@
 }
 
 .dashboard-card {
-  background-color: #251790;
-  border-radius: 1rem;
-  padding: 2rem;
+  background: linear-gradient(135deg, #146ADA 0%, #0E5AA8 100%);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
   position: relative;
-  min-height: 250px;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px rgba(20, 106, 218, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(20, 106, 218, 0.35);
 }
 
 .card-header {
@@ -56,12 +74,15 @@
 }
 
 .card-badge {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .card-title {

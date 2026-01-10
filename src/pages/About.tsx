@@ -9,7 +9,7 @@ import banner6 from '../assets/lawYouBanner6.jpeg';
 import banner7 from '../assets/lawYouBanner7.jpeg';
 import abhayImage from '../assets/Abhay.jpg';
 import adityaImage from '../assets/Aditya.JPG';
-import levinImage from '../assets/Levin.jpg';
+import levinImage from '../assets/levin.jpg';
 import './About.css';
 
 const About: React.FC = () => {

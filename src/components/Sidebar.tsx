@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Person, Language, Phone, Lock, Logout } from '@mui/icons-material';
+import { Person, Logout } from '@mui/icons-material';
 import logo from '../assets/lawYouLogoNewSvg.svg';
 import './Sidebar.css';
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Container, Typography, Card, CardContent, Grid } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent } from '@mui/material';
 import { Phone, Email } from '@mui/icons-material';
 import { theme } from '../constants/theme';
 import banner1 from '../assets/lawYouBanner1.jpeg';
@@ -9,6 +9,7 @@ import banner6 from '../assets/lawYouBanner6.jpeg';
 import banner7 from '../assets/lawYouBanner7.jpeg';
 import abhayImage from '../assets/Abhay.jpg';
 import adityaImage from '../assets/Aditya.JPG';
+import levinImage from '../assets/Levin.jpg';
 import './About.css';
 
 const About: React.FC = () => {
@@ -68,7 +69,7 @@ As the Co-Founder of LawYou, Adithya plays a key role in shaping the platform's 
     {
       name: 'Levin Harry',
       role: 'Angel Investor & Advisor',
-      image: adityaImage,
+      image: levinImage,
       bio: `Levin Harry is an MBA student specializing in Information Technology and Operations, with a strong foundation in business management and data-driven decision-making. He is currently pursuing his MBA at ICFAI Business School, where he combines academic rigor with practical exposure in operations management, analytics, and logistics.
 
 He holds a Bachelor of Business Administration (General Studies) from Loyola College, where he developed a strong understanding of core business principles, critical thinking, and organizational dynamics. His professional experience as a Junior Logistics Executive at Cosmo Ltd provided him with hands-on exposure to supply chain operations, shipment coordination, inventory management, and cross-functional communication, ensuring timely dispatches and accurate documentation.
@@ -223,34 +224,32 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
             Our Team
           </Typography>
 
-          <Grid container spacing={4}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {teamMembers.map((member, index) => (
-              <Grid item xs={12} key={index}>
-                <Card
-                  sx={{
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                    borderRadius: '1rem',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      boxShadow: '0 8px 30px rgba(0, 0, 0, 0.15)',
-                      transform: 'translateY(-4px)',
-                    },
-                  }}
-                >
-                  <CardContent sx={{ padding: '0' }}>
-                    <Grid container>
-                      {/* Image Section */}
-                      <Grid
-                        item
-                        xs={12}
-                        md={4}
-                        sx={{
-                          position: 'relative',
-                          minHeight: { xs: '300px', md: '100%' },
-                          padding: 0,
-                        }}
-                      >
+              <Card
+                key={index}
+                sx={{
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                  borderRadius: '1rem',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.15)',
+                    transform: 'translateY(-4px)',
+                  },
+                }}
+              >
+                <CardContent sx={{ padding: '0px !important' }}>
+                  <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+                    {/* Image Section */}
+                    <Box
+                      sx={{
+                        width: { xs: '100%', md: '33.333%' },
+                        position: 'relative',
+                        minHeight: { xs: '300px', md: '100%' },
+                        padding: 0,
+                      }}
+                    >
                         <Box
                           sx={{
                             width: '100%',
@@ -308,11 +307,10 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
                             </Typography>
                           </Box>
                         </Box>
-                      </Grid>
+                      </Box>
 
                       {/* Content Section */}
-                      <Grid item xs={12} md={8}>
-                        <Box sx={{ padding: '2rem' }}>
+                      <Box sx={{ width: { xs: '100%', md: '66.666%' }, padding: '2rem' }}>
                           <Typography
                             variant="body1"
                             sx={{
@@ -401,14 +399,12 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
                               </Box>
                             </Box>
                           )}
-                        </Box>
-                      </Grid>
-                    </Grid>
+                      </Box>
+                    </Box>
                   </CardContent>
                 </Card>
-              </Grid>
             ))}
-          </Grid>
+          </Box>
         </Box>
       </Container>
     </div>

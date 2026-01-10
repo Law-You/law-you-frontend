@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Close, CheckCircle, Description, Gavel } from '@mui/icons-material';
-import { theme } from '../constants/theme';
 import './AgreementCheckout.css';
 
 interface AgreementCheckoutProps {

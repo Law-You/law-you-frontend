@@ -31,7 +31,7 @@
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   height: fit-content;
-  margin-top: 12rem; /* Aligns with Edit Profile section, accounting for user header height */
+  margin-top: 11rem; /* Aligns with Edit Profile section, accounting for user header height */
 }
 
 .profile-page-title {
@@ -465,7 +465,7 @@
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   height: fit-content;
-  margin-top: 12rem; /* Aligns with Edit Profile section, accounting for user header height */
+  margin-top: 11rem; /* Aligns with Edit Profile section, accounting for user header height */
 }
 
 .complete-profile-title {

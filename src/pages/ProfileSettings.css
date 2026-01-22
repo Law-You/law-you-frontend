@@ -5,7 +5,15 @@
   font-family: 'Inter', Arial, sans-serif;
   position: relative;
   overflow-x: hidden;
-  padding: 1rem 2rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .profile-settings-page {
+    padding: 1rem 2rem;
+  }
 }
 
 .profile-main-content {
@@ -20,6 +28,8 @@
   max-width: 1500px;
   margin: 0 auto;
   padding-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Left Sidebar */
@@ -132,6 +142,9 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* User Name Header */
@@ -161,10 +174,19 @@
 .profile-card {
   background: #FFFFFF;
   border-radius: 1rem;
-  padding: 2.5rem;
+  padding: 1.5rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   border: 1px solid #E5E7EB;
   transition: box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    padding: 2.5rem;
+  }
 }
 
 .profile-card:hover {
@@ -176,6 +198,10 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .edit-action-button {
@@ -207,18 +233,32 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .info-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .info-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .info-item label {
@@ -237,6 +277,10 @@
   background: #F9FAFB;
   border-radius: 0.5rem;
   border: 1px solid #E5E7EB;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .profile-card-title {
@@ -253,6 +297,8 @@
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .profile-picture-container {
@@ -346,18 +392,32 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-field label {
@@ -376,6 +436,9 @@
   font-family: 'Inter', Arial, sans-serif;
   outline: none;
   transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .form-input:focus {
@@ -389,6 +452,19 @@
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions button {
+    width: 100%;
+  }
 }
 
 .cancel-button {
@@ -557,11 +633,51 @@
   .profile-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .profile-left-sidebar,
   .profile-right-sidebar {
     order: -1;
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .profile-center-content {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-settings-page {
+    padding: 0.5rem;
+  }
+  
+  .profile-card {
+    padding: 1rem;
+  }
+  
+  .profile-user-name {
+    font-size: 1.75rem;
+  }
+  
+  .profile-card-title {
+    font-size: 1.25rem;
+  }
+  
+  .edit-action-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+  
+  .cancel-button,
+  .save-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
   }
 }
 

@@ -4,6 +4,8 @@
   min-height: 100vh;
   background-color: #ffffff;
   padding-bottom: 3rem;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -24,10 +26,24 @@
 
 /* Search and Filter Section */
 .search-filter-section {
-  padding: 2rem 4rem;
+  padding: 2rem 1rem;
   display: flex;
   align-items: center;
   gap: 2rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .search-filter-section {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-filter-section {
+    padding: 2rem 4rem;
+  }
 }
 
 .back-button {
@@ -102,7 +118,7 @@
 /* Filter Panel */
 .filter-panel {
   background: #f9fafb;
-  padding: 0 4rem;
+  padding: 0 1rem;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
   display: grid;
@@ -113,12 +129,31 @@
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.4s ease-in-out;
+  box-sizing: border-box;
 }
 
 .filter-panel.show {
   max-height: 300px;
   opacity: 1;
-  padding: 2rem 4rem;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .filter-panel {
+    padding: 0 2rem;
+  }
+  .filter-panel.show {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .filter-panel {
+    padding: 0 4rem;
+  }
+  .filter-panel.show {
+    padding: 2rem 4rem;
+  }
 }
 
 .filter-group {
@@ -189,7 +224,19 @@
 
 /* Results Info */
 .results-info {
-  padding: 1rem 4rem;
+  padding: 1rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .results-info {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .results-info {
+    padding: 1rem 4rem;
+  }
 }
 
 .results-info p {
@@ -200,10 +247,24 @@
 
 /* Lawyers Grid */
 .lawyers-grid {
-  padding: 0 4rem;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .lawyers-grid {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lawyers-grid {
+    padding: 0 4rem;
+  }
 }
 
 /* No Results */
@@ -258,20 +319,10 @@
   }
 
   .filter-panel {
-    padding: 0 1rem;
     grid-template-columns: 1fr;
   }
 
-  .filter-panel.show {
-    padding: 1.5rem 1rem;
-  }
-
-  .results-info {
-    padding: 1rem;
-  }
-
   .lawyers-grid {
-    padding: 0 1rem;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
   }

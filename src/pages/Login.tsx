@@ -36,7 +36,6 @@ const UserTypeToggle: React.FC<UserTypeToggleProps> = ({ value, onChange }) => {
         position: 'relative',
         display: 'flex',
         backgroundColor: theme.colors.backgroundDark,
-        marginBottom: '40px',
         width: '100%',
         borderRadius: '8px',
         overflow: 'hidden',
@@ -68,9 +67,9 @@ const UserTypeToggle: React.FC<UserTypeToggleProps> = ({ value, onChange }) => {
           onClick={() => onChange(option.value)}
           sx={{
             flex: 1,
-            padding: '8px 24px',
+            padding: { xs: '6px 12px', sm: '8px 16px', md: '8px 24px' },
             textTransform: 'none',
-            fontSize: '1rem',
+            fontSize: { xs: '0.875rem', sm: '0.9375rem', md: '1rem' },
             fontWeight: 600,
             border: 'none',
             position: 'relative',
@@ -79,6 +78,7 @@ const UserTypeToggle: React.FC<UserTypeToggleProps> = ({ value, onChange }) => {
             backgroundColor: 'transparent',
             transition: 'color 0.3s ease',
             borderRadius: 0,
+            whiteSpace: 'nowrap',
             '&:hover': {
               backgroundColor: 'transparent',
             },
@@ -119,12 +119,11 @@ const Login: React.FC = () => {
     <Box
       sx={{
         display: 'flex',
-        height: '100vh',
-        width: '100vw',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        overflow: 'hidden',
+        flexDirection: { xs: 'column', lg: 'row' },
+        minHeight: '100vh',
+        width: '100%',
+        position: 'relative',
+        overflow: { xs: 'auto', lg: 'hidden' },
       }}
     >
       {/* Home Button */}
@@ -132,8 +131,8 @@ const Login: React.FC = () => {
         onClick={() => navigate('/')}
         sx={{
           position: 'absolute',
-          top: '24px',
-          left: '24px',
+          top: { xs: '16px', md: '24px' },
+          left: { xs: '16px', md: '24px' },
           zIndex: 1000,
           backgroundColor: theme.colors.backgroundBlack,
           color: theme.colors.textWhite,
@@ -148,15 +147,15 @@ const Login: React.FC = () => {
       {/* Left Panel - White Background */}
       <Box
         sx={{
-          width: '50%',
+          width: { xs: '100%', lg: '50%' },
+          minHeight: { xs: 'auto', lg: '100vh' },
           backgroundColor: theme.colors.background,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'flex-start',
-          padding: { xs: '40px 40px', md: '60px 80px', lg: '80px 100px' },
+          padding: { xs: '80px 24px 40px', sm: '100px 32px 48px', md: '120px 48px 60px', lg: '80px 60px', xl: '80px 100px' },
           position: 'relative',
-          overflow: 'hidden',
         }}
       >
         {/* Content wrapper */}
@@ -169,13 +168,19 @@ const Login: React.FC = () => {
           }}
         >
           {/* Logo */}
-          <Box sx={{ marginBottom: '-170px', marginLeft: '-55px' }}>
+          <Box sx={{ 
+            marginBottom: { xs: '32px', md: '-170px' }, 
+            marginLeft: { xs: 0, md: '-55px' },
+            width: '100%',
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'flex-start' }
+          }}>
             <Box
               component="img"
               src={logo}
               alt="LawYou"
               sx={{
-                maxWidth: '280px',
+                maxWidth: { xs: '200px', sm: '240px', md: '280px' },
                 width: '100%',
                 height: 'auto',
                 objectFit: 'contain',
@@ -185,15 +190,15 @@ const Login: React.FC = () => {
           </Box>
 
           {/* Headline */}
-          <Box sx={{ marginBottom: '40px' }}>
+          <Box sx={{ marginBottom: { xs: '32px', md: '40px' }, textAlign: { xs: 'center', md: 'left' }, width: '100%' }}>
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 600,
                 color: theme.colors.textPrimary,
-                fontSize: { xs: '1.5rem', md: '2.5rem', lg: '3rem' },
+                fontSize: { xs: '1.25rem', sm: '1.5rem', md: '2rem', lg: '2.5rem', xl: '3rem' },
                 lineHeight: 1.1,
-                marginBottom: '24px',
+                marginBottom: { xs: '16px', md: '24px' },
                 letterSpacing: '-0.02em',
               }}
             >
@@ -204,10 +209,10 @@ const Login: React.FC = () => {
               sx={{
                 fontWeight: 800,
                 color: theme.colors.primary,
-                fontSize: { xs: '3.5rem', md: '5rem', lg: '6rem' },
+                fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem', lg: '5rem', xl: '6rem' },
                 lineHeight: 1,
                 letterSpacing: '-0.03em',
-                marginTop: '-10px',
+                marginTop: { xs: '-8px', md: '-10px' },
               }}
             >
               JUSTICE
@@ -215,15 +220,16 @@ const Login: React.FC = () => {
           </Box>
 
           {/* Tagline */}
-          <Box>
+          <Box sx={{ textAlign: { xs: 'center', md: 'left' }, width: '100%' }}>
             <Typography
               variant="body1"
               sx={{
                 color: theme.colors.textSecondary,
-                fontSize: { xs: '1rem', md: '1.125rem' },
+                fontSize: { xs: '0.9375rem', sm: '1rem', md: '1.125rem' },
                 lineHeight: 1.75,
                 fontWeight: 400,
-                maxWidth: '520px',
+                maxWidth: { xs: '100%', md: '520px' },
+                margin: { xs: '0 auto', md: '0' },
               }}
             >
               Access the world's most advanced legal learning modules. Connect
@@ -236,24 +242,25 @@ const Login: React.FC = () => {
       {/* Right Panel - Black Background with Login Form */}
       <Box
         sx={{
-          width: '50%',
+          width: { xs: '100%', lg: '50%' },
+          minHeight: { xs: 'auto', lg: '100vh' },
           backgroundColor: theme.colors.backgroundBlack,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: '60px 80px',
+          padding: { xs: '48px 24px', sm: '60px 32px', md: '60px 48px', lg: '60px 60px', xl: '60px 80px' },
         }}
       >
-        <Box sx={{ width: '100%', maxWidth: '500px' }}>
+        <Box sx={{ width: '100%', maxWidth: { xs: '100%', sm: '500px' } }}>
           {/* Welcome Title */}
           <Typography
             variant="h3"
             sx={{
               fontWeight: 700,
               color: theme.colors.textWhite,
-              marginBottom: '16px',
-              fontSize: '2.5rem',
+              marginBottom: { xs: '12px', md: '16px' },
+              fontSize: { xs: '1.75rem', sm: '2rem', md: '2.25rem', lg: '2.5rem' },
               textAlign: 'center',
             }}
           >
@@ -265,8 +272,8 @@ const Login: React.FC = () => {
             variant="body1"
             sx={{
               color: theme.colors.textWhite,
-              marginBottom: '40px',
-              fontSize: '1rem',
+              marginBottom: { xs: '32px', md: '40px' },
+              fontSize: { xs: '0.9375rem', md: '1rem' },
               opacity: 0.8,
               textAlign: 'center',
             }}
@@ -275,7 +282,9 @@ const Login: React.FC = () => {
           </Typography>
 
           {/* User Type Toggle Buttons with Sliding Animation */}
-          <UserTypeToggle value={userType} onChange={setUserType} />
+          <Box sx={{ marginBottom: { xs: '32px', md: '40px' } }}>
+            <UserTypeToggle value={userType} onChange={setUserType} />
+          </Box>
 
           {/* Login Form */}
           <form onSubmit={handleLogin}>
@@ -288,10 +297,11 @@ const Login: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               sx={{
-                marginBottom: '24px',
+                marginBottom: { xs: '20px', md: '24px' },
                 '& .MuiOutlinedInput-root': {
                   backgroundColor: '#2a2a2a',
                   borderRadius: '8px',
+                  fontSize: { xs: '0.9375rem', md: '1rem' },
                   '& fieldset': {
                     borderColor: '#404040',
                   },
@@ -304,12 +314,14 @@ const Login: React.FC = () => {
                 },
                 '& .MuiInputLabel-root': {
                   color: theme.colors.textWhite,
+                  fontSize: { xs: '0.9375rem', md: '1rem' },
                   '&.Mui-focused': {
                     color: '#146ADA',
                   },
                 },
                 '& .MuiInputBase-input': {
                   color: theme.colors.textWhite,
+                  padding: { xs: '12px 14px', md: '14px' },
                 },
               }}
             />
@@ -319,14 +331,15 @@ const Login: React.FC = () => {
               fullWidth
               label="Password"
               type={showPassword ? 'text' : 'password'}
-                  value={password} 
-                  onChange={(e) => setPassword(e.target.value)} 
-                  required 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required 
               sx={{
-                marginBottom: '24px',
+                marginBottom: { xs: '20px', md: '24px' },
                 '& .MuiOutlinedInput-root': {
                   backgroundColor: '#2a2a2a',
                   borderRadius: '8px',
+                  fontSize: { xs: '0.9375rem', md: '1rem' },
                   '& fieldset': {
                     borderColor: '#404040',
                   },
@@ -339,12 +352,14 @@ const Login: React.FC = () => {
                 },
                 '& .MuiInputLabel-root': {
                   color: theme.colors.textWhite,
+                  fontSize: { xs: '0.9375rem', md: '1rem' },
                   '&.Mui-focused': {
                     color: '#146ADA',
                   },
                 },
                 '& .MuiInputBase-input': {
                   color: theme.colors.textWhite,
+                  padding: { xs: '12px 14px', md: '14px' },
                 },
               }}
               InputProps={{
@@ -354,7 +369,10 @@ const Login: React.FC = () => {
                       aria-label="toggle password visibility"
                       onClick={togglePasswordVisibility}
                       edge="end"
-                      sx={{ color: theme.colors.textWhite }}
+                      sx={{ 
+                        color: theme.colors.textWhite,
+                        padding: { xs: '8px', md: '12px' }
+                      }}
                     >
                       {showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
@@ -367,9 +385,11 @@ const Login: React.FC = () => {
             <Box
               sx={{
                 display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' },
                 justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '32px',
+                alignItems: { xs: 'flex-start', sm: 'center' },
+                gap: { xs: '12px', sm: 0 },
+                marginBottom: { xs: '24px', md: '32px' },
               }}
             >
               <FormControlLabel
@@ -379,6 +399,7 @@ const Login: React.FC = () => {
                     onChange={(e) => setRememberMe(e.target.checked)}
                     sx={{
                       color: '#9ca3af',
+                      padding: { xs: '4px 9px', md: '9px' },
                       '&.Mui-checked': {
                         color: '#146ADA',
                       },
@@ -386,7 +407,10 @@ const Login: React.FC = () => {
                   />
                 }
                 label={
-                  <Typography sx={{ color: theme.colors.textWhite, fontSize: '0.9rem' }}>
+                  <Typography sx={{ 
+                    color: theme.colors.textWhite, 
+                    fontSize: { xs: '0.875rem', md: '0.9rem' } 
+                  }}>
                     Remember me
                   </Typography>
                 }
@@ -395,9 +419,10 @@ const Login: React.FC = () => {
                 sx={{
                   color: '#146ADA',
                   textTransform: 'none',
-                  fontSize: '0.9rem',
+                  fontSize: { xs: '0.875rem', md: '0.9rem' },
                   padding: 0,
                   minWidth: 'auto',
+                  whiteSpace: 'nowrap',
                   '&:hover': {
                     backgroundColor: 'transparent',
                     textDecoration: 'underline',
@@ -416,12 +441,12 @@ const Login: React.FC = () => {
               sx={{
                 backgroundColor: theme.colors.primary,
                 color: theme.colors.textWhite,
-                padding: '14px',
-                fontSize: '1rem',
+                padding: { xs: '12px', md: '14px' },
+                fontSize: { xs: '0.9375rem', md: '1rem' },
                 fontWeight: 600,
                 textTransform: 'none',
                 borderRadius: '8px',
-                marginBottom: '16px',
+                marginBottom: { xs: '12px', md: '16px' },
                 '&:hover': {
                   backgroundColor: theme.colors.primaryDark,
                 },
@@ -431,11 +456,11 @@ const Login: React.FC = () => {
             </Button>
 
             {/* Sign Up Link */}
-            <Box sx={{ textAlign: 'center', marginBottom: '32px' }}>
+            <Box sx={{ textAlign: 'center', marginBottom: { xs: '24px', md: '32px' } }}>
               <Typography
                 sx={{
                   color: theme.colors.textWhite,
-                  fontSize: '0.9rem',
+                  fontSize: { xs: '0.875rem', md: '0.9rem' },
                 }}
               >
                 New user?{' '}
@@ -444,7 +469,7 @@ const Login: React.FC = () => {
                   sx={{
                     color: '#146ADA',
                     textTransform: 'none',
-                    fontSize: '0.9rem',
+                    fontSize: { xs: '0.875rem', md: '0.9rem' },
                     padding: 0,
                     minWidth: 'auto',
                     textDecoration: 'underline',

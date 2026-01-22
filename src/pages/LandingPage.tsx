@@ -190,30 +190,37 @@ const LandingPage = () => {
       padding: 0,
       margin: 0,
       width: '100%',
+      overflowX: 'hidden',
+      boxSizing: 'border-box',
         color: theme.colors.textPrimary,
     }}
   >
-      <main style={{ width: '100%', padding: 0, margin: 0 }}>
+      <main style={{ width: '100%', padding: 0, margin: 0, overflowX: 'hidden', boxSizing: 'border-box' }}>
       {/* Hero Section */}
       <section
         style={{
             maxWidth: '1400px',
           margin: '0 auto',
-            padding: '4rem 0rem 0rem 0rem',
+            padding: '4rem 1rem 0rem 1rem',
           display: 'flex',
             flexDirection: 'column',
           alignItems: 'center',
+          width: '100%',
+          boxSizing: 'border-box',
         }}
       >
           {/* Headline */}
           <h1
             style={{
-              fontSize: '4rem',
+              fontSize: 'clamp(2rem, 8vw, 4rem)',
               fontWeight: 700,
               color: theme.colors.textPrimary,
               lineHeight: 1.2,
               marginBottom: '0.5rem',
               textAlign: 'center',
+              width: '100%',
+              padding: '0 1rem',
+              boxSizing: 'border-box',
             }}
           >
             Courtroom Confidence.
@@ -221,12 +228,15 @@ const LandingPage = () => {
 
           <h1
             style={{
-              fontSize: '4rem',
+              fontSize: 'clamp(2rem, 8vw, 4rem)',
               fontWeight: 700,
               color: theme.colors.textPrimary,
               lineHeight: 1.2,
               marginBottom: '1.5rem',
               textAlign: 'center',
+              width: '100%',
+              padding: '0 1rem',
+              boxSizing: 'border-box',
             }}
           >
             Website Convenience.
@@ -300,6 +310,8 @@ const LandingPage = () => {
               width: '100%',
               maxWidth: '1200px',
               margin: '0 auto 6rem auto',
+              padding: '0 1rem',
+              boxSizing: 'border-box',
             }}
           >
             <Typography
@@ -336,6 +348,9 @@ const LandingPage = () => {
                   backgroundColor: '#ffffff',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   overflow: 'hidden',
+                  width: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
@@ -355,15 +370,25 @@ const LandingPage = () => {
                     alignSelf: 'stretch',
                   }}
                 />
-                <CardContent sx={{ flex: 1, padding: '2rem' }}>
+                <CardContent sx={{ 
+                  flex: 1, 
+                  padding: '2rem',
+                  minWidth: 0,
+                  overflow: 'hidden',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                }}>
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Criminal Lawyer
@@ -375,6 +400,9 @@ const LandingPage = () => {
                       color: theme.colors.textSecondary,
                       lineHeight: 1.6,
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Handles criminal defense cases, bail matters, and court representation
@@ -394,6 +422,9 @@ const LandingPage = () => {
                   backgroundColor: '#ffffff',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   overflow: 'hidden',
+                  width: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
@@ -413,15 +444,25 @@ const LandingPage = () => {
                     alignSelf: 'stretch',
                   }}
                 />
-                <CardContent sx={{ flex: 1, padding: '2rem' }}>
+                <CardContent sx={{ 
+                  flex: 1, 
+                  padding: '2rem',
+                  minWidth: 0,
+                  overflow: 'hidden',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                }}>
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Family Lawyer
@@ -433,6 +474,9 @@ const LandingPage = () => {
                       color: theme.colors.textSecondary,
                       lineHeight: 1.6,
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Provides legal support for divorce, child custody, and family disputes
@@ -452,6 +496,9 @@ const LandingPage = () => {
                   backgroundColor: '#ffffff',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   overflow: 'hidden',
+                  width: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
@@ -471,15 +518,25 @@ const LandingPage = () => {
                     alignSelf: 'stretch',
                   }}
                 />
-                <CardContent sx={{ flex: 1, padding: '2rem' }}>
+                <CardContent sx={{ 
+                  flex: 1, 
+                  padding: '2rem',
+                  minWidth: 0,
+                  overflow: 'hidden',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                }}>
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Corporate Lawyer
@@ -491,6 +548,9 @@ const LandingPage = () => {
                       color: theme.colors.textSecondary,
                       lineHeight: 1.6,
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Assists businesses with contracts, compliance, and corporate legal matters
@@ -510,6 +570,9 @@ const LandingPage = () => {
                   backgroundColor: '#ffffff',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   overflow: 'hidden',
+                  width: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
@@ -529,15 +592,25 @@ const LandingPage = () => {
                     alignSelf: 'stretch',
                   }}
                 />
-                <CardContent sx={{ flex: 1, padding: '2rem' }}>
+                <CardContent sx={{ 
+                  flex: 1, 
+                  padding: '2rem',
+                  minWidth: 0,
+                  overflow: 'hidden',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                }}>
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Immigration Lawyer
@@ -549,6 +622,9 @@ const LandingPage = () => {
                       color: theme.colors.textSecondary,
                       lineHeight: 1.6,
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Helps with visas, green cards, citizenship, and immigration documentation
@@ -568,6 +644,9 @@ const LandingPage = () => {
                   backgroundColor: '#ffffff',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   overflow: 'hidden',
+                  width: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
@@ -587,15 +666,25 @@ const LandingPage = () => {
                     alignSelf: 'stretch',
                   }}
                 />
-                <CardContent sx={{ flex: 1, padding: '2rem' }}>
+                <CardContent sx={{ 
+                  flex: 1, 
+                  padding: '2rem',
+                  minWidth: 0,
+                  overflow: 'hidden',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                }}>
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Real Estate Lawyer
@@ -607,6 +696,9 @@ const LandingPage = () => {
                       color: theme.colors.textSecondary,
                       lineHeight: 1.6,
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Handles property transactions, leases, and real estate disputes
@@ -626,6 +718,9 @@ const LandingPage = () => {
                   backgroundColor: '#ffffff',
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   overflow: 'hidden',
+                  width: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
@@ -645,15 +740,25 @@ const LandingPage = () => {
                     alignSelf: 'stretch',
                   }}
                 />
-                <CardContent sx={{ flex: 1, padding: '2rem' }}>
+                <CardContent sx={{ 
+                  flex: 1, 
+                  padding: '2rem',
+                  minWidth: 0,
+                  overflow: 'hidden',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                }}>
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Intellectual Property Lawyer
@@ -665,6 +770,9 @@ const LandingPage = () => {
                       color: theme.colors.textSecondary,
                       lineHeight: 1.6,
                       fontFamily: 'Inter, Arial, sans-serif',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto',
                     }}
                   >
                     Protects patents, trademarks, copyrights, and trade secrets
@@ -710,11 +818,7 @@ const LandingPage = () => {
           {/* Footer Section with Icons - Full Width Grey Background */}
           <section
             style={{
-              width: '100vw',
-              left: '50%',
-              right: '50%',
-              marginLeft: '-50vw',
-              marginRight: '-50vw',
+              width: '100%',
               backgroundColor: theme.colors.backgroundDark || '#F5F5F5',
               padding: '1rem 0',
               marginTop: '0',

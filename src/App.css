@@ -1,21 +1,25 @@
-#root {
-  background-color: #ffffff;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
+/* ============================================
+   APP CONTAINER STYLES
+   ============================================ */
 
 .app-container {
   width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
   width: 100%;
   margin: 0;
   padding: 0;
+  flex: 1;
 }
 
+/* Ensure no unwanted overflow */
+.app-container,
+.main-content {
+  overflow-x: hidden;
+}

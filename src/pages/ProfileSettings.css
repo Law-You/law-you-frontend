@@ -36,7 +36,7 @@
 .profile-left-sidebar {
   display: flex;
   flex-direction: column;
-  background: #000000;
+  background: #FFFFFF;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -47,13 +47,13 @@
 .profile-page-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #000000;
   margin: 0 0 0.5rem 0;
 }
 
 .profile-page-subtitle {
   font-size: 0.9375rem;
-  color: #CCCCCC;
+  color: #666666;
   margin: 0 0 2.5rem 0;
 }
 
@@ -536,7 +536,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background: #000000;
+  background: #FFFFFF;
   padding: 2.5rem;
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -547,7 +547,7 @@
 .complete-profile-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #000000;
   margin: 0 0 2rem 0;
   text-align: center;
 }
@@ -594,7 +594,7 @@
   left: 50%;
   transform: translate(-50%, 20%);
   font-size: 0.875rem;
-  color: #CCCCCC;
+  color: #666666;
   opacity: 0.9;
 }
 
@@ -609,7 +609,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 0.9375rem;
-  color: #CCCCCC;
+  color: #666666;
 }
 
 .checklist-item.completed {

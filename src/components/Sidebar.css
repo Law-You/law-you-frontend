@@ -135,6 +135,32 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
+/* Join With Us Button */
+.sidebar-join-us-button {
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(135deg, #146ADA 0%, #0E5AA8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', Arial, sans-serif;
+  box-shadow: 0 4px 12px rgba(20, 106, 218, 0.3);
+  width: calc(100% - 3rem);
+}
+
+.sidebar-join-us-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(20, 106, 218, 0.4);
+}
+
+.sidebar-join-us-button:active {
+  transform: translateY(0);
+}
+
 .sidebar-divider {
   height: 1px;
   background-color: #e5e7eb;

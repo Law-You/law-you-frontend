@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Person, Logout } from '@mui/icons-material';
 import logo from '../assets/lawYouLogoNewSvg.svg';
+import JoinUsDialog from './JoinUsDialog';
 import './Sidebar.css';
 
 interface SidebarProps {
@@ -11,6 +12,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
+  const [showJoinUsDialog, setShowJoinUsDialog] = useState(false);
 
   return (
     <>
@@ -57,6 +59,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
 
+        {/* Join With Us Button */}
+        <button 
+          className="sidebar-join-us-button"
+          onClick={() => setShowJoinUsDialog(true)}
+        >
+          Join With Us
+        </button>
+
         <div className="sidebar-divider" />
         
         <button 
@@ -70,6 +80,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <span>Logout</span>
         </button>
       </div>
+
+      {/* Join Us Dialog */}
+      {showJoinUsDialog && (
+        <JoinUsDialog onClose={() => setShowJoinUsDialog(false)} />
+      )}
     </>
   );
 };

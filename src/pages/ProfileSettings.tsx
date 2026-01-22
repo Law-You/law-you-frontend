@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Person, Delete, Camera, Edit } from '@mui/icons-material';
 import profileIcon from '../assets/profileicon.png';
-import Footer from '../components/Footer';
 import './ProfileSettings.css';
 
 interface ProfileData {

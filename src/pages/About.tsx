@@ -27,16 +27,43 @@ const About: React.FC = () => {
 
   const teamMembers = [
     {
+      name: 'Adithya Kumar N',
+      role: 'Co-Founder',
+      image: adityaImage,
+      bio: `Adithya Kumar N is a finance professional with a strong interest in building technology-driven, data-backed business systems. He is currently pursuing his MBA at NMIMS Bangalore, where his focus lies in finance, analytics, and the application of emerging technologies such as Generative AI to modern business decision-making.
+
+With an academic foundation in commerce and finance, Adithya brings a structured and analytical perspective to LawYou's growth. His experience and training enable him to contribute meaningfully to financial planning, operational strategy, and the development of scalable, sustainable business models for the platform.
+
+At LawYou, Adithya plays a key role in shaping financial strategy, supporting data-driven decision frameworks, and aligning technology with long-term operational efficiency. His approach ensures that the platform's legal vision is supported by sound financial discipline and execution-focused planning.`,
+      quote: 'Sustainable innovation is built where strategy, data, and execution meet.',
+      skills: [],
+      contact: null
+    },
+    {
+      name: 'Levin Harry',
+      role: 'Angel Investor & Advisor',
+      image: levinImage,
+      bio: `Levin Harry supports LawYou with strategic, operational, and analytical insight.
+
+With a background in business administration and an MBA specialization in Information Technology and Operations, Levin brings a systems-oriented approach to platform growth. His professional experience in logistics and operations has shaped his focus on efficiency, process clarity, and scalable execution.
+
+He has hands-on expertise in business analytics, including Power BI, advanced Excel, and Python-based analysis, enabling data-driven decision-making across operations and strategy.
+
+As an Angel Investor and Advisor, Levin contributes to building sustainable systems that support LawYou's long-term growth and operational stability.`,
+      quote: 'A strong product survives on clarity. A strong system survives on data.',
+      skills: [],
+      contact: null
+    },
+    {
       name: 'Abhay K Kavin',
       role: 'Founder & CEO',
       image: abhayImage,
-      bio: `Abhay K Kavin is a law graduate and legal entrepreneur with a strong inclination towards legal innovation, compliance, and practical problem-solving. He is the Founder & CEO of LawYou, a legal-tech platform built with the vision of making legal assistance more accessible, transparent, and efficient for individuals, startups, and businesses.
+      bio: `Abhay K Kavin founded LawYou to address a recurring problem he encountered during his legal training: legal help exists, but access to it is often slow, unclear, and intimidating.
 
-Currently pursuing his legal education, Abhay has developed a solid foundation in legal research, drafting, corporate compliance, and procedural law through hands-on internships with advocates and legal professionals, including experience associated with the Madras High Court. His exposure spans live legal matters, documentation, evidence verification, and compliance-oriented legal work.
+As a law graduate with hands-on exposure to legal research, drafting, compliance work, and live legal matters associated with the Madras High Court, Abhay developed a practical understanding of how fragmented legal processes can be for individuals, startups, and students. Rather than accepting this as a systemic flaw, he focused on building structured, technology-driven solutions to simplify legal access.
 
-Alongside practice-oriented legal training, Abhay has demonstrated strong leadership and organisational skills. He has served as the Convenor of the Moot Court Committee at his institution, where he was responsible for academic coordination, event management, and mentoring students in advocacy and research skills. This role, combined with his entrepreneurial journey, has strengthened his abilities in communication, strategic planning, and team management.
-
-His professional interests lie at the intersection of law, technology, human resources, compliance frameworks, and intellectual property rights. Through LawYou, he actively works on building systems that simplify legal processes, connect users with legal professionals, and promote legal awareness in a practical, user-friendly manner.`,
+Through LawYou, Abhay works to make legal assistance clearer, faster, and more accessible without compromising ethical standards or professional accountability.`,
+      quote: 'Law should protect people, not confuse them.',
       skills: [
         'Legal Research & Analysis',
         'Contract Drafting & Documentation',
@@ -50,38 +77,6 @@ His professional interests lie at the intersection of law, technology, human res
         phone: '9080919053',
         email: 'abhaykavin1@gmail.com'
       }
-    },
-    {
-      name: 'Adithya Kumar N',
-      role: 'Co-Founder',
-      image: adityaImage,
-      bio: `Adithya Kumar N is a finance professional currently pursuing his MBA at NMIMS Bangalore, with a strong focus on integrating core financial expertise with emerging technologies such as Generative AI. Following his B.Com graduation in 2024 from DG Vaishnav College, he has actively worked towards building a technology-driven approach to modern finance.
-
-He is an active member of both the Placement Committee and HRiday (the HR Club) at NMIMS for the 2025–2026 term, reflecting his interest in talent development, organisational strategy, and people management. His academic foundation is supported by a 94% score in his XII CBSE examinations and a 7.7 CGPA during his undergraduate studies.
-
-Adithya possesses strong technical proficiency in Microsoft Excel and Word, and holds specialised certifications in Google Data Analytics, Financial Markets, and Generative AI for Finance Analysts. His analytical mindset, combined with a curiosity for technological innovation, allows him to approach financial challenges with both precision and adaptability.
-
-Beyond academics and professional pursuits, he is a former Inter-School Football Tournament winner and maintains active interests in music and sports, contributing to a well-rounded professional outlook.
-
-As the Co-Founder of LawYou, Adithya plays a key role in shaping the platform's financial strategy, operational planning, and technology-driven growth initiatives. With a strong understanding of finance, analytics, and emerging technologies, he contributes to building sustainable business models, data-backed decision frameworks, and scalable systems that support LawYou's long-term vision.`,
-      skills: [],
-      contact: null
-    },
-    {
-      name: 'Levin Harry',
-      role: 'Angel Investor & Advisor',
-      image: levinImage,
-      bio: `Levin Harry is an MBA student specializing in Information Technology and Operations, with a strong foundation in business management and data-driven decision-making. He is currently pursuing his MBA at ICFAI Business School, where he combines academic rigor with practical exposure in operations management, analytics, and logistics.
-
-He holds a Bachelor of Business Administration (General Studies) from Loyola College, where he developed a strong understanding of core business principles, critical thinking, and organizational dynamics. His professional experience as a Junior Logistics Executive at Cosmo Ltd provided him with hands-on exposure to supply chain operations, shipment coordination, inventory management, and cross-functional communication, ensuring timely dispatches and accurate documentation.
-
-With a keen interest in business analytics and operational efficiency, Levin has hands-on experience in building Power BI dashboards, working extensively with Excel, and applying Python for analytical tasks. He enjoys transforming raw data into meaningful insights that support informed and strategic business decisions.
-
-He continues to strengthen his professional skill set through certifications in Excel (Intermediate), Power BI, and Bloomberg Finance, and aspires to build a career at the intersection of technology, operations, and data analytics.
-
-Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he contributes strategic guidance, operational insight, and analytical perspective to support the platform's growth and decision-making.`,
-      skills: [],
-      contact: null
     }
   ];
 
@@ -166,46 +161,155 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
               },
             }}
           >
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginBottom: '1rem',
+              }}
+            >
+              About LawYou:
+            </Typography>
             <p>
-              LawYou is a comprehensive legal-tech platform designed to bring law, legal assistance, and legal knowledge onto a single accessible digital space. Our vision is to simplify how individuals, professionals, and students interact with the law—making it faster, clearer, and more approachable.
-            </p>
-            
-            <p>
-              For clients, LawYou enables instant access to qualified advocates. Users can connect with legal professionals within minutes for consultations across various areas of law, removing traditional barriers such as delays, uncertainty, and lack of access.
-            </p>
-            
-            <p>
-              For law students, LawYou serves as a knowledge hub by providing free access to bare acts and subject-wise notes for LL.B. courses. The platform supports academic growth by making essential legal resources readily available, structured, and easy to understand.
+              LawYou is a legal-tech platform built to simplify access to legal assistance, legal knowledge, and legal discussion within a single digital ecosystem.
             </p>
             
             <Typography
               variant="h5"
               sx={{
                 fontSize: '1.375rem',
-                fontWeight: 600,
+                fontWeight: 700,
                 color: theme.colors.textPrimary,
                 marginTop: '2rem',
                 marginBottom: '1rem',
               }}
             >
-              Beyond consultations and education, LawYou also offers:
+              Our Story:
             </Typography>
+            <p>
+              LawYou was born from a simple observation: legal help is available, but often inaccessible, delayed, or unclear. The platform was created to remove friction between people and the law through technology and structure.
+            </p>
             
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              Why LawYou Exists:
+            </Typography>
+            <p>
+              Because legal processes should not feel intimidating or exclusive. LawYou exists to replace confusion with clarity and delays with timely access.
+            </p>
+            
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              What We Do:
+            </Typography>
+            <p>
+              LawYou connects users with qualified legal professionals, provides structured legal learning resources, and enables practical legal solutions through technology.
+            </p>
+            
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              Who We Serve:
+            </Typography>
             <ul style={{ paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
               <li style={{ marginBottom: '0.75rem' }}>
-                <strong>Ready-made contracts and agreements</strong>, professionally drafted and verified by legal experts, available for direct download.
+                Individuals seeking legal clarity
               </li>
               <li style={{ marginBottom: '0.75rem' }}>
-                An <strong>interactive legal discussion space</strong>, inspired by platforms like X and Reddit, where users can share legal opinions, discuss current legal developments, and engage in informed conversations on law, policy, and current affairs.
+                Startups and businesses needing efficient legal support
+              </li>
+              <li style={{ marginBottom: '0.75rem' }}>
+                Law students looking for accessible academic resources
               </li>
             </ul>
             
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              Founders' Vision:
+            </Typography>
             <p>
-              LawYou is built with the belief that law should not be complex, inaccessible, or intimidating. We are continuously evolving—expanding our services, improving accessibility, and integrating technology to serve the legal ecosystem more effectively.
+              To build a transparent, efficient, and accessible legal ecosystem where legal assistance and legal knowledge are designed for real-world use.
             </p>
             
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              Our Approach:
+            </Typography>
             <p>
-              As a growing platform, LawYou remains committed to innovation, inclusivity, and practicality, striving to become a one-stop destination for legal services, legal learning, and legal dialogue.
+              We combine legal expertise, technology, and data-driven systems to deliver solutions that are practical, reliable, and easy to navigate.
+            </p>
+            
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              Why We're Different:
+            </Typography>
+            <p>
+              LawYou integrates legal services, learning, and discussion into one platform, reducing fragmentation and making legal engagement simpler and faster.
+            </p>
+            
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 700,
+                color: theme.colors.textPrimary,
+                marginTop: '2rem',
+                marginBottom: '1rem',
+              }}
+            >
+              Looking Ahead:
+            </Typography>
+            <p>
+              LawYou continues to evolve with a focus on innovation, inclusivity, and scalable systems that strengthen access to justice and legal awareness.
             </p>
           </Box>
         </Box>
@@ -241,13 +345,13 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
                 }}
               >
                 <CardContent sx={{ padding: '0px !important' }}>
-                  <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
-                    {/* Image Section */}
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    {/* Image Section - Full Width on Top */}
                     <Box
                       sx={{
-                        width: { xs: '100%', md: '33.333%' },
+                        width: '100%',
                         position: 'relative',
-                        minHeight: { xs: '300px', md: '100%' },
+                        minHeight: { xs: '300px', md: '400px' },
                         padding: 0,
                       }}
                     >
@@ -255,7 +359,7 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
                           sx={{
                             width: '100%',
                             height: '100%',
-                            minHeight: { xs: '300px', md: '450px' },
+                            minHeight: { xs: '300px', md: '400px' },
                             position: 'relative',
                             overflow: 'hidden',
                           }}
@@ -310,8 +414,8 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
                         </Box>
                       </Box>
 
-                      {/* Content Section */}
-                      <Box sx={{ width: { xs: '100%', md: '66.666%' }, padding: '2rem' }}>
+                      {/* Content Section - Full Width Below Image */}
+                      <Box sx={{ width: '100%', padding: '2rem' }}>
                           <Typography
                             variant="body1"
                             sx={{
@@ -324,6 +428,28 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
                           >
                             {member.bio}
                           </Typography>
+
+                          {(member as any).quote && (
+                            <Box sx={{ 
+                              marginTop: '1.5rem', 
+                              marginBottom: '1.5rem',
+                              padding: '1.5rem',
+                              background: theme.colors.backgroundDark,
+                              borderRadius: '0.5rem',
+                              borderLeft: `4px solid ${theme.colors.primary}`,
+                            }}>
+                              <Typography
+                                sx={{
+                                  fontSize: '1rem',
+                                  fontStyle: 'italic',
+                                  lineHeight: 1.6,
+                                  color: theme.colors.textPrimary,
+                                }}
+                              >
+                                "{(member as any).quote}"
+                              </Typography>
+                            </Box>
+                          )}
 
                           {member.skills.length > 0 && (
                             <Box sx={{ marginBottom: '1.5rem' }}>

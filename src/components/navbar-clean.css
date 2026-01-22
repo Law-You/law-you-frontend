@@ -45,7 +45,7 @@
 @media (min-width: 768px) {
   .navbar-logo {
     height: 40px;
-  }
+}
 }
 
 /* Navigation Links Container */
@@ -133,7 +133,7 @@
 
 @media (min-width: 1024px) {
   .nav-links-right {
-    gap: 2rem;
+  gap: 2rem;
   }
 }
 

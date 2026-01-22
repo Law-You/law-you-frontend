@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 import learnAnytimeIcon from '../assets/learnAnytime.png';
 import trackProgressIcon from '../assets/trackProgress.png';
 import connectWithIcon from '../assets/connectWith.png';
@@ -58,7 +59,7 @@ const LegalLearning: React.FC = () => {
   ];
 
   return (
-    <div className="legal-learning-page">
+    <div className="legal-learning-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-container">
@@ -157,6 +158,11 @@ const LegalLearning: React.FC = () => {
           </p>
         </div>
       </section> */}
+      
+      {/* Footer Section */}
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 };

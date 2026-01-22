@@ -95,9 +95,9 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
 
   return (
     <>
-      <div className="navbar">
-        {/* Branding on the left */}
-        <div className="navbar-brand">
+    <div className="navbar">
+      {/* Branding on the left */}
+      <div className="navbar-brand">
           <Link
             to="/"
             onClick={closeMobileMenu}
@@ -106,18 +106,18 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
               display: 'inline-block',
             }}
           >
-            <img src={logo} alt="LawYou" className="navbar-logo" />
+        <img src={logo} alt="LawYou" className="navbar-logo" />
           </Link>
-        </div>
+      </div>
         
         {/* Desktop Navigation links */}
-        <nav className="nav-links">
+      <nav className="nav-links">
           <div className="nav-links-left">
-            <Link
-              to="/"
-              className={`nav-link${location.pathname === '/' ? ' active' : ''}`}
-            >HOME</Link>
-            <Link
+        <Link
+          to="/"
+          className={`nav-link${location.pathname === '/' ? ' active' : ''}`}
+        >HOME</Link>
+        <Link
               to="/legal-learning"
               className={`nav-link${location.pathname === '/legal-learning' ? ' active' : ''}`}
             >RESOURCE SECTION</Link>
@@ -164,13 +164,13 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
             >CONTACT US</Link>
           </div>
           <div className="nav-links-right">
-            <Link
+        <Link
               to="/lawtalk-hub"
               className={`nav-link${location.pathname === '/lawtalk-hub' ? ' active' : ''}`}
             >LAWTALK HUB</Link>
-            <Link
-              to="/login"
-              className="nav-button"
+        <Link
+          to="/login"
+          className="nav-button"
             >LOG IN</Link>
             <button
               className="hamburger-button-nav"
@@ -179,7 +179,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
               <img src={hamburgerIcon} alt="Sidebar Menu" className="hamburger-icon-nav" />
             </button>
           </div>
-        </nav>
+      </nav>
 
         {/* Mobile Menu Actions (shown only on mobile) */}
         <div className="mobile-nav-actions">
@@ -293,7 +293,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
             Sidebar Menu
           </button>
         </div>
-      </div>
+    </div>
       
       {selectedAgreement && (
         <AgreementCheckout

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 import customerDashboardImage from './customerDashboard.png';
 import resourceSectionImage from './resourceSection.png';
 import lawyerDashboardImage from './lawyerDashboard.png';
@@ -48,7 +49,7 @@ const ExploreServices = () => {
   };
 
   return (
-    <div className="explore-services-container">
+    <div className="explore-services-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Main Title */}
       <div className="services-title-section">
         <h1 className="services-title">Explore Our Services</h1>
@@ -57,11 +58,11 @@ const ExploreServices = () => {
       {/* Services Section */}
       <div className="services-section">
         {services.map((service) => (
-          <div
-            key={service.id}
+            <div
+              key={service.id}
             className={`service-card ${service.imagePosition === 'left' ? 'image-left' : 'image-right'}`}
-            onClick={() => handleServiceClick(service.path)}
-          >
+              onClick={() => handleServiceClick(service.path)}
+            >
             {service.imagePosition === 'left' && (
               <div className="service-image-container">
                 <img
@@ -84,8 +85,13 @@ const ExploreServices = () => {
                 />
               </div>
             )}
-          </div>
-        ))}
+            </div>
+          ))}
+      </div>
+      
+      {/* Footer Section */}
+      <div style={{ marginTop: '4rem', paddingTop: '2rem', flexShrink: 0 }}>
+        <Footer />
       </div>
     </div>
   );

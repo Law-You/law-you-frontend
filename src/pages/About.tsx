@@ -10,6 +10,7 @@ import banner7 from '../assets/lawYouBanner7.jpeg';
 import abhayImage from '../assets/Abhay.jpg';
 import adityaImage from '../assets/Aditya.JPG';
 import levinImage from '../assets/levin.jpg';
+import Footer from '../components/Footer';
 import './About.css';
 
 const About: React.FC = () => {
@@ -85,7 +86,7 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
   ];
 
   return (
-    <div className="about-page">
+    <div className="about-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Hero Carousel */}
       <div className="about-carousel">
         {banners.map((banner, index) => (
@@ -407,6 +408,11 @@ Levin Harry is associated with LawYou as an Angel Investor and Advisor, where he
           </Box>
         </Box>
       </Container>
+      
+      {/* Footer Section */}
+      <div style={{ marginTop: '4rem', paddingTop: '2rem', flexShrink: 0 }}>
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #E5E7EB 0%, #F3F4F6 100%);
   font-family: 'Inter', Arial, sans-serif;
-  padding: 2rem 0 6rem 0;
+  /* padding: 2rem 0 6rem 0; */
 }
 
 .lawtalk-container {

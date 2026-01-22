@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Add, KeyboardArrowDown, KeyboardArrowUp, ThumbUp, Reply as ReplyIcon } from '@mui/icons-material';
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import Footer from '../components/Footer';
 import './LawTalkHub.css';
 
 interface Reply {
@@ -185,7 +186,7 @@ const LawTalkHub: React.FC = () => {
   );
 
   return (
-    <div className="lawtalk-hub-page">
+    <div className="lawtalk-hub-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div className="lawtalk-container">
         {/* Header */}
         <div className="lawtalk-header">
@@ -429,6 +430,11 @@ const LawTalkHub: React.FC = () => {
             </div>
           </div>
         )}
+      </div>
+      
+      {/* Footer Section */}
+      <div style={{ marginTop: '4rem', paddingTop: '2rem', flexShrink: 0 }}>
+        <Footer />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Person, Delete, Camera, Edit } from '@mui/icons-material';
 import profileIcon from '../assets/profileicon.png';
+import Footer from '../components/Footer';
 import './ProfileSettings.css';
 
 interface ProfileData {
@@ -84,7 +85,7 @@ const ProfileSettings: React.FC = () => {
   };
 
   return (
-    <div className="profile-settings-page">
+    <div className="profile-settings-page" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div className="profile-main-content">
         <div className="profile-layout">
           {/* Left Sidebar Navigation */}
@@ -297,6 +298,11 @@ const ProfileSettings: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Footer Section */}
+      {/* <div>
+        <Footer />
+      </div> */}
     </div>
   );
 };

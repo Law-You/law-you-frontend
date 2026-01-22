@@ -331,9 +331,9 @@ const Login: React.FC = () => {
               fullWidth
               label="Password"
               type={showPassword ? 'text' : 'password'}
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              required 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)} 
+                  required 
               sx={{
                 marginBottom: { xs: '20px', md: '24px' },
                 '& .MuiOutlinedInput-root': {
@@ -373,7 +373,7 @@ const Login: React.FC = () => {
                         color: theme.colors.textWhite,
                         padding: { xs: '8px', md: '12px' }
                       }}
-                    >
+                >
                       {showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>

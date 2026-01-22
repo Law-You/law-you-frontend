@@ -7,6 +7,7 @@ import {
   InputLabel,
 } from '@mui/material';
 import LawyerCard from '../components/LawyerCard';
+import Footer from '../components/Footer';
 import './findLawyer.css';
 
 interface Lawyer {
@@ -174,7 +175,7 @@ const FindLawyer = () => {
   };
 
   return (
-    <div className="find-lawyer-container">
+    <div className="find-lawyer-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Header */}
       {/* <div className="find-lawyer-header">
         <h1 className="page-title">OUR LAWYERS</h1>
@@ -310,6 +311,11 @@ const FindLawyer = () => {
             <button onClick={resetFilters}>Clear Filters</button>
           </div>
         )}
+      </div>
+      
+      {/* Footer Section */}
+      <div style={{ marginTop: '4rem', paddingTop: '2rem', flexShrink: 0 }}>
+        <Footer />
       </div>
     </div>
   );

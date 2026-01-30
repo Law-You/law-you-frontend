@@ -473,22 +473,34 @@
 /* Agreements Dropdown */
 .agreements-dropdown-wrapper {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .agreements-button {
   background: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   padding: 0;
-  font-family: inherit;
-  font-size: inherit;
+  margin: 0;
+  min-height: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.25;
   color: #ffffff !important;
   opacity: 1 !important;
   font-weight: 500;
   transition: color 0.2s, opacity 0.2s;
+  vertical-align: middle;
+}
+
+@media (min-width: 768px) {
+  .agreements-button {
+    font-size: 0.875rem;
+  }
 }
 
 .agreements-button:hover {
@@ -513,14 +525,11 @@
 }
 
 .dropdown-arrow {
-  font-size: 1rem !important;
+  font-size: 0.875em !important;
+  width: 1em;
+  height: 1em;
   transition: transform 0.3s ease;
-}
-
-@media (min-width: 768px) {
-  .dropdown-arrow {
-    font-size: 1.25rem !important;
-  }
+  flex-shrink: 0;
 }
 
 .dropdown-arrow.rotated {

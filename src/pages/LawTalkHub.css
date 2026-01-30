@@ -205,6 +205,32 @@
   transform: scale(1.1);
 }
 
+.thread-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.thread-delete-button {
+  background: #FEE2E2;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #B91C1C;
+}
+
+.thread-delete-button:hover {
+  background: #DC2626;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
 .thread-title {
   font-size: 1.25rem;
   font-weight: 700;

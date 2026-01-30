@@ -13,11 +13,14 @@ import womenLawyer3 from '../assets/womenLawyer3.jpg';
 import womenlawyer2 from '../assets/womenlawyer2.jpg';
 import theme from '../constants/theme';
 import Footer from '../components/Footer';
+import JoinUsDialog from '../components/JoinUsDialog';
+import { useState } from 'react';
 
 const buttonBlue = theme.colors.primary;
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [showPartnerDialog, setShowPartnerDialog] = useState(false);
   
   return (
   <div
@@ -63,7 +66,7 @@ const LandingPage = () => {
               boxSizing: 'border-box',
         }}
       >
-            Courtroom Confidence.
+            Legal clarity,
           </h1>
 
           <h1
@@ -79,7 +82,7 @@ const LandingPage = () => {
               boxSizing: 'border-box',
             }}
           >
-            Website Convenience.
+            one click away.
           </h1>
 
           {/* Tagline */}
@@ -93,7 +96,7 @@ const LandingPage = () => {
               maxWidth: '700px',
             }}
           >
-            Legal help, simplified. Find trusted lawyers and manage your case with clarity.
+            Trusted lawyers. Transparent guidance. Seamless experience.
           </p>
 
           {/* Action Buttons */}
@@ -170,12 +173,12 @@ const LandingPage = () => {
 
             <Box
               sx={{
-            display: 'grid',
-                gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
-            gap: '2rem',
-            marginBottom: '3rem',
-          }}
-        >
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
+                gap: { xs: '2rem', lg: '1.25rem' },
+                marginBottom: '3rem',
+              }}
+            >
               {/* Criminal Lawyer Card */}
               <Card
                 sx={{
@@ -202,9 +205,9 @@ const LandingPage = () => {
                   src={maleLawyer1}
                   alt="Criminal Lawyer"
                   sx={{
-                    width: 180,
+                    width: { xs: 180, md: 150, lg: 100 },
                     height: '100%',
-                    minHeight: '150px',
+                    minHeight: { xs: '150px', lg: '120px' },
                     objectFit: 'cover',
                     flexShrink: 0,
                     alignSelf: 'stretch',
@@ -212,7 +215,7 @@ const LandingPage = () => {
                 />
                 <CardContent sx={{ 
                   flex: 1, 
-                  padding: '2rem',
+                  padding: { xs: '2rem', lg: '1.25rem' },
                   minWidth: 0,
                   overflow: 'hidden',
                   wordWrap: 'break-word',
@@ -221,7 +224,7 @@ const LandingPage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem', lg: '1.125rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
@@ -276,9 +279,9 @@ const LandingPage = () => {
                   src={maleLawyer2}
                   alt="Family Lawyer"
                   sx={{
-                    width: 180,
+                    width: { xs: 180, md: 150, lg: 100 },
                     height: '100%',
-                    minHeight: '150px',
+                    minHeight: { xs: '150px', lg: '120px' },
                     objectFit: 'cover',
                     flexShrink: 0,
                     alignSelf: 'stretch',
@@ -286,7 +289,7 @@ const LandingPage = () => {
                 />
                 <CardContent sx={{ 
                   flex: 1, 
-                  padding: '2rem',
+                  padding: { xs: '2rem', lg: '1.25rem' },
                   minWidth: 0,
                   overflow: 'hidden',
                   wordWrap: 'break-word',
@@ -295,7 +298,7 @@ const LandingPage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem', lg: '1.125rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
@@ -350,9 +353,9 @@ const LandingPage = () => {
                   src={womenLawyer}
                   alt="Corporate Lawyer"
                   sx={{
-                    width: 180,
+                    width: { xs: 180, md: 150, lg: 100 },
                     height: '100%',
-                    minHeight: '150px',
+                    minHeight: { xs: '150px', lg: '120px' },
                     objectFit: 'cover',
                     flexShrink: 0,
                     alignSelf: 'stretch',
@@ -360,7 +363,7 @@ const LandingPage = () => {
                 />
                 <CardContent sx={{ 
                   flex: 1, 
-                  padding: '2rem',
+                  padding: { xs: '2rem', lg: '1.25rem' },
                   minWidth: 0,
                   overflow: 'hidden',
                   wordWrap: 'break-word',
@@ -369,7 +372,7 @@ const LandingPage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem', lg: '1.125rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
@@ -424,9 +427,9 @@ const LandingPage = () => {
                   src={menLawyer3}
                   alt="Immigration Lawyer"
                   sx={{
-                    width: 180,
+                    width: { xs: 180, md: 150, lg: 100 },
                     height: '100%',
-                    minHeight: '150px',
+                    minHeight: { xs: '150px', lg: '120px' },
                     objectFit: 'cover',
                     flexShrink: 0,
                     alignSelf: 'stretch',
@@ -434,7 +437,7 @@ const LandingPage = () => {
                 />
                 <CardContent sx={{ 
                   flex: 1, 
-                  padding: '2rem',
+                  padding: { xs: '2rem', lg: '1.25rem' },
                   minWidth: 0,
                   overflow: 'hidden',
                   wordWrap: 'break-word',
@@ -443,7 +446,7 @@ const LandingPage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem', lg: '1.125rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
@@ -498,9 +501,9 @@ const LandingPage = () => {
                   src={womenLawyer3}
                   alt="Real Estate Lawyer"
                   sx={{
-                    width: 180,
+                    width: { xs: 180, md: 150, lg: 100 },
                     height: '100%',
-                    minHeight: '150px',
+                    minHeight: { xs: '150px', lg: '120px' },
                     objectFit: 'cover',
                     flexShrink: 0,
                     alignSelf: 'stretch',
@@ -508,7 +511,7 @@ const LandingPage = () => {
                 />
                 <CardContent sx={{ 
                   flex: 1, 
-                  padding: '2rem',
+                  padding: { xs: '2rem', lg: '1.25rem' },
                   minWidth: 0,
                   overflow: 'hidden',
                   wordWrap: 'break-word',
@@ -517,7 +520,7 @@ const LandingPage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem', lg: '1.125rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
@@ -572,9 +575,9 @@ const LandingPage = () => {
                   src={womenlawyer2}
                   alt="Intellectual Property Lawyer"
                   sx={{
-                    width: 180,
+                    width: { xs: 180, md: 150, lg: 100 },
                     height: '100%',
-                    minHeight: '150px',
+                    minHeight: { xs: '150px', lg: '120px' },
                     objectFit: 'cover',
                     flexShrink: 0,
                     alignSelf: 'stretch',
@@ -582,7 +585,7 @@ const LandingPage = () => {
                 />
                 <CardContent sx={{ 
                   flex: 1, 
-                  padding: '2rem',
+                  padding: { xs: '2rem', lg: '1.25rem' },
                   minWidth: 0,
                   overflow: 'hidden',
                   wordWrap: 'break-word',
@@ -591,7 +594,7 @@ const LandingPage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem', lg: '1.125rem' },
                       fontWeight: 700,
                       color: theme.colors.textPrimary,
                       marginBottom: '0.75rem',
@@ -651,6 +654,280 @@ const LandingPage = () => {
                 BROWSE ALL LAWYERS
               </button>
             </Box> */}
+          </section>
+
+          {/* LAWTALK HUB, Resources, Partner With Us, Agreements Section */}
+          <section
+            style={{
+              width: '100%',
+              maxWidth: '1200px',
+              margin: '0 auto 6rem auto',
+              padding: '0 1rem',
+              boxSizing: 'border-box',
+            }}
+          >
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' },
+                gap: '2.5rem',
+                alignItems: 'stretch',
+              }}
+            >
+              {/* LAWTALK HUB */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: '2rem 1.5rem',
+                  borderRadius: '1rem',
+                  backgroundColor: '#ffffff',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)',
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontSize: { xs: '1.125rem', sm: '1.25rem' },
+                    fontWeight: 700,
+                    color: theme.colors.textPrimary,
+                    marginBottom: '0.75rem',
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  LawTalk Hub
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1rem',
+                    color: theme.colors.textSecondary,
+                    lineHeight: 1.6,
+                    marginBottom: '1.5rem',
+                    flex: 1,
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Law, beyond textbooks and courtrooms.
+                </Typography>
+                <Button
+                  onClick={() => navigate('/lawtalk-hub')}
+                  variant="contained"
+                  sx={{
+                    padding: '0.875rem 2rem',
+                    background: buttonBlue,
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                    transition: 'background-color 0.2s',
+                    width: '100%',
+                    maxWidth: '280px',
+                    '&:hover': {
+                      backgroundColor: theme.colors.primaryDark,
+                    },
+                  }}
+                >
+                  LAWTALK HUB
+                </Button>
+              </Box>
+
+              {/* Resource Section */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: '2rem 1.5rem',
+                  borderRadius: '1rem',
+                  backgroundColor: '#ffffff',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)',
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontSize: { xs: '1.125rem', sm: '1.25rem' },
+                    fontWeight: 700,
+                    color: theme.colors.textPrimary,
+                    marginBottom: '0.75rem',
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Resource Section
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1rem',
+                    color: theme.colors.textSecondary,
+                    lineHeight: 1.6,
+                    marginBottom: '1.5rem',
+                    flex: 1,
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Study. Refer. Research.
+                </Typography>
+                <Button
+                  onClick={() => navigate('/legal-learning')}
+                  variant="contained"
+                  sx={{
+                    padding: '0.875rem 2rem',
+                    background: buttonBlue,
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                    transition: 'background-color 0.2s',
+                    width: '100%',
+                    maxWidth: '280px',
+                    '&:hover': {
+                      backgroundColor: theme.colors.primaryDark,
+                    },
+                  }}
+                >
+                  RESOURCES
+                </Button>
+              </Box>
+
+              {/* Partner With Us */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: '2rem 1.5rem',
+                  borderRadius: '1rem',
+                  backgroundColor: '#ffffff',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)',
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontSize: { xs: '1.125rem', sm: '1.25rem' },
+                    fontWeight: 700,
+                    color: theme.colors.textPrimary,
+                    marginBottom: '0.75rem',
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Partner With Us
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1rem',
+                    color: theme.colors.textSecondary,
+                    lineHeight: 1.6,
+                    marginBottom: '1.5rem',
+                    flex: 1,
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Promote university events, firm initiatives, internships, and more.
+                </Typography>
+                <Button
+                  onClick={() => setShowPartnerDialog(true)}
+                  variant="contained"
+                  sx={{
+                    padding: '0.875rem 2rem',
+                    background: buttonBlue,
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                    transition: 'background-color 0.2s',
+                    width: '100%',
+                    maxWidth: '280px',
+                    '&:hover': {
+                      backgroundColor: theme.colors.primaryDark,
+                    },
+                  }}
+                >
+                  JOIN NOW
+                </Button>
+              </Box>
+
+              {/* Agreements */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: '2rem 1.5rem',
+                  borderRadius: '1rem',
+                  backgroundColor: '#ffffff',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)',
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontSize: { xs: '1.125rem', sm: '1.25rem' },
+                    fontWeight: 700,
+                    color: theme.colors.textPrimary,
+                    marginBottom: '0.75rem',
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Agreements
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1rem',
+                    color: theme.colors.textSecondary,
+                    lineHeight: 1.6,
+                    marginBottom: '1.5rem',
+                    flex: 1,
+                    fontFamily: 'Inter, Arial, sans-serif',
+                  }}
+                >
+                  Access ready-made, lawyer-verified contracts in just a click.
+                </Typography>
+                <Button
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('openAgreementsDropdown'));
+                  }}
+                  variant="contained"
+                  sx={{
+                    padding: '0.875rem 2rem',
+                    background: buttonBlue,
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    textTransform: 'uppercase',
+                    transition: 'background-color 0.2s',
+                    width: '100%',
+                    maxWidth: '280px',
+                    '&:hover': {
+                      backgroundColor: theme.colors.primaryDark,
+                    },
+                  }}
+                >
+                  AGREEMENTS
+                </Button>
+              </Box>
+            </Box>
           </section>
 
         
@@ -784,6 +1061,14 @@ const LandingPage = () => {
     <div >
       <Footer />
     </div>
+
+    {/* Partner With Us Dialog (from landing page) */}
+    {showPartnerDialog && (
+      <JoinUsDialog
+        variant="partner"
+        onClose={() => setShowPartnerDialog(false)}
+      />
+    )}
   </div>
   );
 };

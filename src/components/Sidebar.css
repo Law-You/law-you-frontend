@@ -101,7 +101,12 @@
   transition: all 0.3s ease;
 }
 
-.sidebar-ad-placeholder:hover {
+.sidebar-ad-placeholder-clickable {
+  cursor: pointer;
+}
+
+.sidebar-ad-placeholder:hover,
+.sidebar-ad-placeholder-clickable:hover {
   border-color: #146ADA;
   background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
   transform: translateY(-2px);

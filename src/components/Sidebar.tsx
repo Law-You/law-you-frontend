@@ -10,9 +10,12 @@ interface SidebarProps {
   onClose: () => void;
 }
 
+type JoinUsVariant = 'partner' | 'join';
+
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const [showJoinUsDialog, setShowJoinUsDialog] = useState(false);
+  const [joinUsVariant, setJoinUsVariant] = useState<JoinUsVariant>('join');
 
   return (
     <>
@@ -50,8 +53,23 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div> */}
         </nav>
 
-        {/* Ad Placeholder Section */}
-        <div className="sidebar-ad-placeholder">
+        {/* Ad Placeholder Section - opens Partner dialog */}
+        <div
+          className="sidebar-ad-placeholder sidebar-ad-placeholder-clickable"
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            setJoinUsVariant('partner');
+            setShowJoinUsDialog(true);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setJoinUsVariant('partner');
+              setShowJoinUsDialog(true);
+            }
+          }}
+        >
           <div className="ad-placeholder-content">
             <div className="ad-placeholder-icon">📢</div>
             <p className="ad-placeholder-text">Partner with Us</p>
@@ -59,10 +77,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        {/* Join With Us Button */}
+        {/* Join With Us Button - opens Join dialog */}
         <button 
           className="sidebar-join-us-button"
-          onClick={() => setShowJoinUsDialog(true)}
+          onClick={() => {
+            setJoinUsVariant('join');
+            setShowJoinUsDialog(true);
+          }}
         >
           Join With Us
         </button>
@@ -83,7 +104,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
       {/* Join Us Dialog */}
       {showJoinUsDialog && (
-        <JoinUsDialog onClose={() => setShowJoinUsDialog(false)} />
+        <JoinUsDialog
+          variant={joinUsVariant}
+          onClose={() => setShowJoinUsDialog(false)}
+        />
       )}
     </>
   );

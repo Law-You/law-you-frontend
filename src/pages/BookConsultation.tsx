@@ -571,7 +571,7 @@ const BookConsultation = () => {
       </div>
       
       {/* Footer Details Section */}
-      <FooterDetails onFeedbackClick={() => setShowFeedbackDialog(true)} />
+      {/* <FooterDetails onFeedbackClick={() => setShowFeedbackDialog(true)} /> */}
       
       {/* Feedback Dialog */}
       {showFeedbackDialog && (

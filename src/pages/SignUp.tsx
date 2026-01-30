@@ -96,6 +96,7 @@ const SignUp: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [role, setRole] = useState('student');
+  const [barNumber, setBarNumber] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -106,7 +107,7 @@ const SignUp: React.FC = () => {
       return;
     }
     // Add your signup logic here
-    console.log('Signup:', { fullName, email, password, role });
+    console.log('Signup:', { fullName, email, password, role, ...(role === 'lawyer' && { barNumber }) });
     navigate('/login');
   };
 
@@ -360,6 +361,44 @@ const SignUp: React.FC = () => {
                 },
               }}
             />
+
+            {/* Bar Number Input - shown when role is Lawyer */}
+            {role === 'lawyer' && (
+              <TextField
+                fullWidth
+                label="Bar Number"
+                type="text"
+                value={barNumber}
+                onChange={(e) => setBarNumber(e.target.value)}
+                required
+                placeholder="Enter your bar registration number"
+                sx={{
+                  marginBottom: '24px',
+                  '& .MuiOutlinedInput-root': {
+                    backgroundColor: '#2a2a2a',
+                    borderRadius: '8px',
+                    '& fieldset': {
+                      borderColor: '#404040',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#606060',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#146ADA',
+                    },
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: theme.colors.textWhite,
+                    '&.Mui-focused': {
+                      color: '#146ADA',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: theme.colors.textWhite,
+                  },
+                }}
+              />
+            )}
 
             {/* Password Input */}
             <TextField

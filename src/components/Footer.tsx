@@ -133,10 +133,10 @@ const Footer: React.FC = () => {
                   fontFamily: 'Inter, Arial, sans-serif',
                 }}
               >
-                E-homes, ground floor,<br />
-                icl home town, noombal,<br />
-                vellapanchavadi,<br />
-                chennai 600077
+                E-Homes, Ground Floor,<br />
+                ICL Home Town, Noombal,<br />
+                Vellapanchavadi,<br />
+                Chennai 600077
               </Typography>
             </Box>
           </Box>

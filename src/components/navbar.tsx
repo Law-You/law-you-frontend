@@ -58,6 +58,16 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
     };
   }, [showAgreementsDropdown]);
 
+  // Listen for open request from landing page (e.g. Agreements card button)
+  useEffect(() => {
+    const handleOpenAgreements = () => {
+      setShowAgreementsDropdown(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    window.addEventListener('openAgreementsDropdown', handleOpenAgreements);
+    return () => window.removeEventListener('openAgreementsDropdown', handleOpenAgreements);
+  }, []);
+
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (location.pathname === '/') {

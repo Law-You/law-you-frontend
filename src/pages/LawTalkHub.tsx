@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Add, KeyboardArrowDown, KeyboardArrowUp, ThumbUp, Reply as ReplyIcon } from '@mui/icons-material';
+import { Search, Add, KeyboardArrowDown, KeyboardArrowUp, ThumbUp, Reply as ReplyIcon, Delete } from '@mui/icons-material';
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import Footer from '../components/Footer';
 import './LawTalkHub.css';
@@ -118,6 +118,16 @@ const LawTalkHub: React.FC = () => {
           : thread
       )
     );
+  };
+
+  const handleDeleteThread = (threadId: number) => {
+    setThreads(prev => prev.filter(thread => thread.id !== threadId));
+    setExpandedThreads(prev => prev.filter(id => id !== threadId));
+    if (replyingToThread === threadId) {
+      setReplyingToThread(null);
+      setNewReply('');
+    }
+    // TODO: integrate delete API when backend is ready
   };
 
   const handleCreateThread = () => {
@@ -242,22 +252,32 @@ const LawTalkHub: React.FC = () => {
             <div key={thread.id} className="thread-card">
               <div className="thread-header">
                 <div className="thread-author-info">
-                  <div className="author-avatar">{thread.initials}</div>
-                  <div className="author-details">
-                    <span className="author-name-lawtalk">{thread.author}</span>
-                    <span className="thread-category-badge">{thread.category}</span>
+                    <div className="author-avatar">{thread.initials}</div>
+                    <div className="author-details">
+                      <span className="author-name-lawtalk">{thread.author}</span>
+                      <span className="thread-category-badge">{thread.category}</span>
+                    </div>
                   </div>
+                <div className="thread-header-actions">
+                  <button
+                    className="thread-delete-button"
+                    onClick={() => handleDeleteThread(thread.id)}
+                    title="Delete thread"
+                    aria-label="Delete thread"
+                  >
+                    <Delete fontSize="small" />
+                  </button>
+                  <button
+                    className="expand-button"
+                    onClick={() => toggleThread(thread.id)}
+                  >
+                    {expandedThreads.includes(thread.id) ? (
+                      <KeyboardArrowUp />
+                    ) : (
+                      <KeyboardArrowDown />
+                    )}
+                  </button>
                 </div>
-                <button
-                  className="expand-button"
-                  onClick={() => toggleThread(thread.id)}
-                >
-                  {expandedThreads.includes(thread.id) ? (
-                    <KeyboardArrowUp />
-                  ) : (
-                    <KeyboardArrowDown />
-                  )}
-                </button>
               </div>
 
               <h3 className="thread-title">{thread.title}</h3>

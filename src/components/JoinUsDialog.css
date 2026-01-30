@@ -142,6 +142,11 @@
   color: #9CA3AF;
 }
 
+.joinus-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
 /* Actions */
 .joinus-actions {
   display: flex;

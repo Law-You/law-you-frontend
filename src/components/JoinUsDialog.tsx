@@ -2,17 +2,33 @@ import React, { useState } from 'react';
 import { Close, CheckCircle, Business, Send } from '@mui/icons-material';
 import './JoinUsDialog.css';
 
+export type JoinUsDialogVariant = 'partner' | 'join';
+
 interface JoinUsDialogProps {
   onClose: () => void;
+  variant?: JoinUsDialogVariant;
 }
 
-const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose }) => {
+const PARTNER_CONFIG = {
+  title: 'Partner With Us',
+  subtitle: 'Reach our audience—promote your brand, events, and initiatives.',
+};
+
+const JOIN_CONFIG = {
+  title: 'Join With Us',
+  subtitle: 'Internships, lawyer onboarding, and updates from LawYou.',
+};
+
+const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose, variant = 'join' }) => {
   const [step, setStep] = useState<'form' | 'success'>('form');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    contactNo: ''
+    contactNo: '',
+    interestedIn: '',
   });
+
+  const config = variant === 'partner' ? PARTNER_CONFIG : JOIN_CONFIG;
 
   const handleSubmit = () => {
     if (formData.name && formData.email && formData.contactNo) {
@@ -26,7 +42,8 @@ const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose }) => {
       setFormData({
         name: '',
         email: '',
-        contactNo: ''
+        contactNo: '',
+        interestedIn: '',
       });
       setStep('form');
     }
@@ -45,9 +62,9 @@ const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose }) => {
             {/* Header */}
             <div className="joinus-header">
               <Business className="joinus-icon" />
-              <h2 className="joinus-title">Join With Us</h2>
+              <h2 className="joinus-title">{config.title}</h2>
               <p className="joinus-subtitle">
-                Partner with LawYou and grow your business with us
+                {config.subtitle}
               </p>
             </div>
 
@@ -88,6 +105,17 @@ const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose }) => {
                   required
                 />
               </div>
+
+              <div className="joinus-form-group">
+                <label className="joinus-label">What are you interested in?</label>
+                <textarea
+                  className="joinus-input joinus-textarea"
+                  placeholder="e.g. Advertising, internships, onboarding, events..."
+                  value={formData.interestedIn}
+                  onChange={(e) => setFormData({ ...formData, interestedIn: e.target.value })}
+                  rows={3}
+                />
+              </div>
             </div>
 
             {/* Action Buttons */}
@@ -114,7 +142,7 @@ const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose }) => {
               </div>
               <h2 className="joinus-success-title">Thank You!</h2>
               <p className="joinus-success-message">
-                Your partnership request has been received. We'll get back to you soon!
+                Your request has been received. We'll get back to you soon!
               </p>
 
               <div className="joinus-success-details">
@@ -130,15 +158,21 @@ const JoinUsDialog: React.FC<JoinUsDialogProps> = ({ onClose }) => {
                   <span className="joinus-success-label">Contact:</span>
                   <span className="joinus-success-value">{formData.contactNo}</span>
                 </div>
+                {formData.interestedIn && (
+                  <div className="joinus-success-row">
+                    <span className="joinus-success-label">Interested in:</span>
+                    <span className="joinus-success-value">{formData.interestedIn}</span>
+                  </div>
+                )}
               </div>
 
               <button className="btn-joinus-done" onClick={handleClose}>
                 Done
               </button>
 
-              <p className="joinus-success-note">
+              {/* <p className="joinus-success-note">
                 We'll contact you within 24-48 hours to discuss partnership opportunities
-              </p>
+              </p> */}
             </div>
           </>
         )}

@@ -451,7 +451,7 @@ Through LawYou, Abhay works to make legal assistance clearer, faster, and more a
                             </Box>
                           )}
 
-                          {member.skills.length > 0 && (
+                          {/* {member.skills.length > 0 && (
                             <Box sx={{ marginBottom: '1.5rem' }}>
                               <Typography
                                 variant="h6"
@@ -482,7 +482,7 @@ Through LawYou, Abhay works to make legal assistance clearer, faster, and more a
                                 ))}
                               </Box>
                             </Box>
-                          )}
+                          )} */}
 
                           {member.contact && (
                             <Box>
